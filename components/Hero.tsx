@@ -1,5 +1,6 @@
 import Image from "next/image";
 import HeroImg from "@/assets/sneakers/heroimg.png";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -9,7 +10,11 @@ const Hero = () => {
           Crafted for Champions. made for you!!!
         </h1>
 
-        <button className="border border-white rounded-full font-light w-[180px] h-[43px] mt-8 bg-transparent hover:bg-white/[0.8] hover:text-black">Our Collections</button>
+        <Link href="/products">
+          <button className="border border-white rounded-full font-light w-[180px] h-[43px] mt-8 bg-transparent hover:bg-white/[0.8] hover:text-black">
+            Our Collections
+          </button>
+        </Link>
       </div>
       <div>
         <Image src={HeroImg} alt="hero_img" className="w-[540px]" />
