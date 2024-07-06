@@ -27,7 +27,7 @@ export default function RootLayout({
       <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet"></link>
       <body className={`${inter.className}`}>
         <Navbar />
-        <div className="max-w-[1440px] mx-auto px-8">{children}</div>
+        <div className="max-w-[1440px] mx-auto">{children}</div>
       </body>
     </html>
   );
