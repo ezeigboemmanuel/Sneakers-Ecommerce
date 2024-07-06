@@ -9,7 +9,7 @@ const Hero = () => {
           Crafted for Champions. made for you!!!
         </h1>
 
-        <button className="border border-white rounded-full font-light w-[180px] h-[43px] mt-8">Our Collections</button>
+        <button className="border border-white rounded-full font-light w-[180px] h-[43px] mt-8 bg-transparent hover:bg-white/[0.8] hover:text-black">Our Collections</button>
       </div>
       <div>
         <Image src={HeroImg} alt="hero_img" className="w-[540px]" />
