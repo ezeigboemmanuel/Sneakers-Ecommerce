@@ -35,13 +35,13 @@ const Navbar = () => {
       </Link>
       <div className="flex space-x-10 ">
         <Link href="/">
-          <p className="font-light hover:font-normal hover:text-white">Men</p>
+          <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out">Men</p>
         </Link>
         <Link href="/">
-          <p className="font-light hover:font-normal hover:text-white">Women</p>
+          <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out">Women</p>
         </Link>
         <Link href="/">
-          <p className="font-light hover:font-normal hover:text-white">Kids</p>
+          <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out">Kids</p>
         </Link>
       </div>
       <div className="flex space-x-8">
@@ -56,9 +56,9 @@ const Navbar = () => {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
               />
             </svg>
