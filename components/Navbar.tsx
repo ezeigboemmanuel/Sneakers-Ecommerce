@@ -79,7 +79,7 @@ const Navbar = () => {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
               alt="icons"
-              className="w-[18.67px] h-[24px]"
+              className="w-[18.67px] h-[24px] cursor-pointer"
             />
           ))}
         </div>
