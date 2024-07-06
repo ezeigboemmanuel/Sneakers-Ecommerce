@@ -7,10 +7,10 @@ import Navbar from "@/components/Navbar";
 const inter = Inter({ subsets: ["latin"] });
 
 const archivo = Archivo({
-  subsets: ['latin'],
-  variable: '--font-archivo',
-  display: 'swap',
-})
+  subsets: ["latin"],
+  variable: "--font-archivo",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Sneakers",
@@ -24,7 +24,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet"></link>
+      <head>
+        <link
+          href="https://fonts.cdnfonts.com/css/satoshi"
+          rel="stylesheet"
+        ></link>
+      </head>
+
       <body className={`${inter.className}`}>
         <Navbar />
         <div className="max-w-[1440px] mx-auto">{children}</div>
