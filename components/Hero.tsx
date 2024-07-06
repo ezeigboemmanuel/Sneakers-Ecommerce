@@ -11,7 +11,7 @@ const Hero = () => {
         </h1>
 
         <Link href="/products">
-          <button className="border border-white rounded-full font-light w-[180px] h-[43px] mt-8 bg-transparent hover:bg-white/[0.8] hover:text-black">
+          <button className="border border-white rounded-full font-light w-[180px] h-[43px] mt-8 bg-transparent hover:bg-white/[0.8] hover:text-black transition-colors duration-500 ease-in-out">
             Our Collections
           </button>
         </Link>
