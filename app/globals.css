@@ -2,3 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+h1 {
+  font-family: var(--font-archivo);
+}
+
+p {
+  font-family: "Satoshi", sans-serif;
+}
+
+input {
+  font-family: "Satoshi", sans-serif;
+}
