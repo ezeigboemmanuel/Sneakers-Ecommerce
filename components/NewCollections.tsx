@@ -7,10 +7,6 @@ import Image5 from "@/assets/sneakers/image5.png";
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import { Navigation } from 'swiper/modules';
 
 const NewCollections = () => {
   const [activeIndex, setActiveIndex] = useState(1);

@@ -1,3 +1,4 @@
+import BestSellers from '@/components/BestSellers'
 import Hero from '@/components/Hero'
 import NewCollections from '@/components/NewCollections'
 
@@ -6,6 +7,7 @@ const page = () => {
     <div>
       <Hero />
       <NewCollections />
+      <BestSellers />
     </div>
   )
 }
