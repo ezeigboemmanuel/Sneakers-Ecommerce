@@ -101,7 +101,7 @@ const BestSellers = () => {
                 <Image
                   src={collection.image}
                   alt={collection.name}
-                  className="rounded-2xl w-full"
+                  className="rounded-2xl hover:w-64 w-full"
                 />
                 <div className="">
                   <p className="text-[17px] text-[#141414] font-[500]">
