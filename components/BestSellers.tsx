@@ -91,7 +91,7 @@ const BestSellers = () => {
         slidesPerView={"auto"}
         spaceBetween={10}
         modules={[Navigation]}
-        className="mySwiper"
+        className="mySwiper max-w-[1240px]"
       >
         {collections.map((collection, index) => (
           <SwiperSlide className="max-w-[270px]">

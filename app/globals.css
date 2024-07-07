@@ -19,6 +19,11 @@ button {
 }
 
 
+.swiper-wrapper{
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+}
 
 
 .slider-controler {
@@ -67,3 +72,4 @@ button {
 .swiper-pagination .swiper-pagination-bullet-active {
   background: var(--primary);
 }
+
