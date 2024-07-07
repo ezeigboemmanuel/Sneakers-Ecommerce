@@ -40,18 +40,18 @@ const page = () => {
 
       <div>
         <div className="flex space-x-6">
-          <div className="min-w-[65px] flex flex-col space-y-4">
+          <div className="min-w-[60px] flex flex-col space-y-4">
             {images.map((image) => (
               <Image
                 src={image.image}
                 alt="img"
-                className="cursor-pointer w-[60px] hover:w-[65px]"
+                className="cursor-pointer w-[55px] hover:w-[60px]"
                 onClick={() => setActiveImage(image.image)}
               />
             ))}
           </div>
           <div className="">
-            <Image src={activeImage} alt="img" className="h-[593px] w-[400px]" />
+            <Image src={activeImage} alt="img" className="h-[550px] w-[400px]" />
           </div>
         </div>
 
