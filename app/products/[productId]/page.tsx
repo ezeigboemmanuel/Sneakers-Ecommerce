@@ -51,7 +51,7 @@ const page = () => {
             ))}
           </div>
           <div className="">
-            <Image src={activeImage} alt="img" className="h-[593px]" />
+            <Image src={activeImage} alt="img" className="h-[593px] w-[400px]" />
           </div>
         </div>
 
