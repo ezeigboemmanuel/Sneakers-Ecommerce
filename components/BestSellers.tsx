@@ -6,6 +6,12 @@ import Image3 from "@/assets/sneakers/image3.png";
 import Image5 from "@/assets/sneakers/image5.png";
 import Image from "next/image";
 import Link from "next/link";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation } from "swiper/modules";
+import ArrowBack from "@/assets/icons/arrowback.svg";
+import ArrowForward from "@/assets/icons/arrowforward.svg";
 
 const BestSellers = () => {
   const collections = [
@@ -61,36 +67,62 @@ const BestSellers = () => {
     },
   ];
   return (
-    <div className="pt-14 px-8">
-      <h1 className="text-[#2E2E2E] uppercase text-center text-[30px] font-[500] mb-8">
-        best Sellers
-      </h1>
-
-      <div className="flex items-end justify-center space-x-5">
-        {collections.map((collection, index) => (
-          <Link href="/" key={index} className="w-80 cursor-pointer">
-            <Image
-              src={collection.image}
-              alt={collection.name}
-              className="rounded-2xl w-full"
-            />
-            <div className="">
-              <p className="text-[20px] text-[#141414] font-[500]">{collection.name}</p>
-              <p className="text-base text-[#141414]/[0.8]">
-                {collection.category}
-              </p>
-              <p className="text-base text-[#141414]/[0.8]">
-                {collection.noOfColours > 1
-                  ? `${collection.noOfColours} Colours`
-                  : `${collection.noOfColours} Colour`}
-              </p>
-              <p className="font-[500] text-base text-[#141414]">
-                ₦ {collection.price}
-              </p>
-            </div>
-          </Link>
-        ))}
+    <div className="pt-16 px-8 mb-16">
+      <div className="flex justify-between items-center">
+        <h1 className="text-[#2E2E2E] uppercase text-center text-[30px] font-[500] mb-8">
+          best Sellers
+        </h1>
+        <div className="slider-controler space-x-4">
+          <div className="swiper-button-prev slider-arrow">
+            <Image src={ArrowBack} alt="arrow-back" />
+          </div>
+          <div className="swiper-button-next slider-arrow">
+            <Image src={ArrowForward} alt="arrow-forward" />
+          </div>
+          <div className="swiper-pagination"></div>
+        </div>
       </div>
+
+      <Swiper
+        navigation={{
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        }}
+        slidesPerView={"auto"}
+        spaceBetween={10}
+        modules={[Navigation]}
+        className="mySwiper"
+      >
+        {collections.map((collection, index) => (
+          <SwiperSlide className="max-w-[270px]">
+            <div className="max-w-80">
+              <Link href="/" key={index} className="max-w-80 cursor-pointer">
+                <Image
+                  src={collection.image}
+                  alt={collection.name}
+                  className="rounded-2xl w-full"
+                />
+                <div className="">
+                  <p className="text-[17px] text-[#141414] font-[500]">
+                    {collection.name}
+                  </p>
+                  <p className="text-[14px] text-[#141414]/[0.8]">
+                    {collection.category}
+                  </p>
+                  <p className="text-[14px] text-[#141414]/[0.8]">
+                    {collection.noOfColours > 1
+                      ? `${collection.noOfColours} Colours`
+                      : `${collection.noOfColours} Colour`}
+                  </p>
+                  <p className="font-[500] text-[15px] text-[#141414]">
+                    ₦ {collection.price}
+                  </p>
+                </div>
+              </Link>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 };
