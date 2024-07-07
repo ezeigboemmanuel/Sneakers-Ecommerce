@@ -4,8 +4,8 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <div className="bg-[#1A1A1A] text-white px-8 h-[90vh] flex justify-center">
-      <div className="mt-12">
+    <div className="bg-[#1A1A1A] text-white px-8 h-[90vh] flex justify-around items-center">
+      <div className="">
         <h1 className="uppercase font-medium text-[60px] max-w-[550px]">
           Crafted for Champions. made for you!!!
         </h1>
