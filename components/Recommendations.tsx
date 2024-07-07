@@ -14,7 +14,7 @@ import ArrowBack from "@/assets/icons/arrowback.svg";
 import ArrowForward from "@/assets/icons/arrowforward.svg";
 import "@/styles/bestsellers.css"
 
-const BestSellers = () => {
+const Recommendations = () => {
   const collections = [
     {
       image: Image2,
@@ -71,7 +71,7 @@ const BestSellers = () => {
     <div className="pt-16 px-8 mb-16">
       <div className="flex justify-between items-center">
         <h1 className="text-[#2E2E2E] uppercase text-center text-[30px] font-[500] mb-8">
-          best Sellers
+        You may also like
         </h1>
         <div className="slider-controler slider-controler2 space-x-4">
           <div className="swiper-button-prev swiper-button-prev2 slider-arrow slider-arrow2">
@@ -128,4 +128,4 @@ const BestSellers = () => {
   );
 };
 
-export default BestSellers;
+export default Recommendations;

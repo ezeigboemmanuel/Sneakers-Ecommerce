@@ -71,7 +71,7 @@ const page = () => {
             key={index}
             className="transition-all duration-500 ease-out h-[440px] max-w-[24rem] w-[22rem] hover:w-[23rem] mx-auto"
           >
-            <Link href="/" key={index}>
+            <Link href="/products/productdetails" key={index}>
               <Image
                 src={product.image}
                 alt={product.name}

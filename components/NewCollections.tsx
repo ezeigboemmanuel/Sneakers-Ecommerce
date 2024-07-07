@@ -83,7 +83,7 @@ const NewCollections = () => {
                   activeIndex === index ? "max-w-80" : "max-w-52"
                 }`}
               >
-                <Link href="/" key={index}>
+                <Link href="/products/productdetails" key={index}>
                   <Image
                     src={collection.image}
                     alt={collection.name}

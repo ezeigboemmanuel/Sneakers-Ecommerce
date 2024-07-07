@@ -34,13 +34,13 @@ const Navbar = () => {
         <Image src={Logo} alt="logo" />
       </Link>
       <div className="flex space-x-10 ">
-        <Link href="/">
+        <Link href="/products">
           <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out">Men</p>
         </Link>
-        <Link href="/">
+        <Link href="/products">
           <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out">Women</p>
         </Link>
-        <Link href="/">
+        <Link href="/products">
           <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out">Kids</p>
         </Link>
       </div>

@@ -117,7 +117,7 @@ const Filter = () => {
               )}
             </div>
           </div>
-          <div className="flex items-center space-x-3 cursor-pointer">
+          <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setOpen(false)}>
             <p className="text-[#2E2E2E]/[0.8]">Close</p>
             <Image src={Close} alt="close" />
           </div>
