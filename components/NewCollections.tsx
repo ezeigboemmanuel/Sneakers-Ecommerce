@@ -72,14 +72,14 @@ const NewCollections = () => {
         >
           {collections.map((collection, index) => (
             <SwiperSlide
-              className={`transition-all duration-500 ease-out max-h-[400px] cursor-pointer min-h-[400px] ${
+              className={`h-[400px] cursor-pointer min-h-[400px] ${
                 activeIndex === index ? "max-w-80 pb-5" : "max-w-52 "
               }`}
               onMouseEnter={() => setActiveIndex(index)}
               onMouseLeave={() => setActiveIndex(1)}
             >
               <div
-                className={`transition-all duration-500 ease-out cursor-pointer ${
+                className={`transition-transform duration-500 ease-out cursor-pointer h-[400px] ${
                   activeIndex === index ? "max-w-80" : "max-w-52"
                 }`}
               >
