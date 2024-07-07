@@ -12,6 +12,7 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import ArrowBack from "@/assets/icons/arrowback.svg";
 import ArrowForward from "@/assets/icons/arrowforward.svg";
+import "@/styles/bestsellers.css"
 
 const BestSellers = () => {
   const collections = [

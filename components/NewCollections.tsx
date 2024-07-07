@@ -13,6 +13,7 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import ArrowBack from "@/assets/icons/arrowback.svg";
 import ArrowForward from "@/assets/icons/arrowforward.svg";
+import "@/styles/collections.css";
 
 const NewCollections = () => {
   const [activeIndex, setActiveIndex] = useState(1);
@@ -53,21 +54,21 @@ const NewCollections = () => {
       </h1>
 
       <div className="flex justify-between items-center">
-        <div className="slider-controler max-w-[20px] mx-auto">
-          <div className="swiper-button-prev slider-arrow">
+        <div className="slider-controler2 swiper2 max-w-[20px] mx-auto">
+          <div className="swiper-button-prev swiperbtn2 slider-arrow2">
             <Image src={ArrowBack} alt="arrow-back" />
           </div>
-          <div className="swiper-pagination"></div>
+          <div className="swiper-pagination2"></div>
         </div>
         <Swiper
           navigation={{
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
+            nextEl: ".swiper-button-next2",
+            prevEl: ".swiper-button-prev2",
           }}
           slidesPerView={"auto"}
           spaceBetween={20}
           modules={[Navigation]}
-          className="mySwiper max-w-[788px] max-h-[420px] min-h-[420px] w-[100%]"
+          className="mySwiper Swiper2 max-w-[788px] max-h-[420px] min-h-[420px] w-[100%]"
         >
           {collections.map((collection, index) => (
             <SwiperSlide
@@ -137,11 +138,11 @@ const NewCollections = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="slider-controler max-w-[20px] mx-auto">
-          <div className="swiper-button-next slider-arrow">
+        <div className="slider-controler2 swiper2 max-w-[20px] mx-auto">
+          <div className="swiper-button-next swiper-btn2 slider-arrow2">
             <Image src={ArrowForward} alt="arrow-forward" />
           </div>
-          <div className="swiper-pagination"></div>
+          <div className="swiper-pagination2"></div>
         </div>
       </div>
     </div>
