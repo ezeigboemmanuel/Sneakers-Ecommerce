@@ -73,21 +73,21 @@ const BestSellers = () => {
         <h1 className="text-[#2E2E2E] uppercase text-center text-[30px] font-[500] mb-8">
           best Sellers
         </h1>
-        <div className="slider-controler space-x-4">
-          <div className="swiper-button-prev slider-arrow">
+        <div className="slider-controler slider-controler2 space-x-4">
+          <div className="swiper-button-prev swiper-button-prev2 slider-arrow slider-arrow2">
             <Image src={ArrowBack} alt="arrow-back" />
           </div>
-          <div className="swiper-button-next slider-arrow">
+          <div className="swiper-button-next swiper-button-next2 slider-arrow slider-arrow2">
             <Image src={ArrowForward} alt="arrow-forward" />
           </div>
-          <div className="swiper-pagination"></div>
+          <div className="swiper-pagination swiper-pagination2"></div>
         </div>
       </div>
 
       <Swiper
         navigation={{
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
+          nextEl: ".swiper-button-next2",
+          prevEl: ".swiper-button-prev2",
         }}
         slidesPerView={"auto"}
         spaceBetween={10}

@@ -54,21 +54,21 @@ const NewCollections = () => {
       </h1>
 
       <div className="flex justify-between items-center">
-        <div className="slider-controler2 swiper2 max-w-[20px] mx-auto">
-          <div className="swiper-button-prev swiperbtn2 slider-arrow2">
+        <div className="slider-controler slider-controler1 swiper1 max-w-[20px] mx-auto">
+          <div className="swiper-button-prev swiper-button-prev1 swiperbtn swiperbtn1 slider-arrow slider-arrow1">
             <Image src={ArrowBack} alt="arrow-back" />
           </div>
-          <div className="swiper-pagination2"></div>
+          <div className="swiper-pagination swiper-pagination1"></div>
         </div>
         <Swiper
           navigation={{
-            nextEl: ".swiper-button-next2",
-            prevEl: ".swiper-button-prev2",
+            nextEl: ".swiper-button-next1",
+            prevEl: ".swiper-button-prev1",
           }}
           slidesPerView={"auto"}
           spaceBetween={20}
           modules={[Navigation]}
-          className="mySwiper Swiper2 max-w-[788px] max-h-[420px] min-h-[420px] w-[100%]"
+          className="mySwiper swiper-container swiper1 max-w-[788px] max-h-[420px] min-h-[420px] w-[100%]"
         >
           {collections.map((collection, index) => (
             <SwiperSlide
@@ -138,11 +138,11 @@ const NewCollections = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="slider-controler2 swiper2 max-w-[20px] mx-auto">
-          <div className="swiper-button-next swiper-btn2 slider-arrow2">
+        <div className="slider-controler slider-controler1 swiper1 max-w-[20px] mx-auto">
+          <div className="swiper-button-next swiper-button-next1 swiper-btn swiper-btn1 slider-arrow slider-arrow1">
             <Image src={ArrowForward} alt="arrow-forward" />
           </div>
-          <div className="swiper-pagination2"></div>
+          <div className="swiper-pagination swiper-pagination1"></div>
         </div>
       </div>
     </div>
