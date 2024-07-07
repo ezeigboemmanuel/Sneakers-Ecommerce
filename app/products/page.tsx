@@ -61,7 +61,7 @@ const page = () => {
   ];
   return (
     <div className="px-8 mb-16">
-      <div className="py-8">
+      <div className="py-8 pl-8">
         <Filter />
       </div>
 
