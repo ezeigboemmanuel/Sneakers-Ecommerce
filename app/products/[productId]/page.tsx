@@ -18,6 +18,7 @@ import Image3 from "@/assets/sneakers/image3.png";
 import Image5 from "@/assets/sneakers/image5.png";
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const page = () => {
   const [activeImage, setActiveImage] = useState(PreImg1);
@@ -130,24 +131,36 @@ const page = () => {
               <div className="flex mb-4">
                 <p className="font-light mr-2">Quantity: </p>
                 <div className="flex space-x-2">
-                  <Image src={Minus} onClick={MinusFunc} alt="minus" className="cursor-pointer" />
+                  <Image
+                    src={Minus}
+                    onClick={MinusFunc}
+                    alt="minus"
+                    className="cursor-pointer"
+                  />
                   <p>{quantity}</p>
-                  <Image src={Add} onClick={AddFunc} alt="add" className="cursor-pointer" />
+                  <Image
+                    src={Add}
+                    onClick={AddFunc}
+                    alt="add"
+                    className="cursor-pointer"
+                  />
                 </div>
               </div>
 
-              <div className="flex items-center space-x-4 mt-3 mb-8">
-                <div className="flex flex-1 space-x-2 justify-center items-center py-3 rounded-[100px] bg-[#141414] text-white cursor-pointer">
-                  <Image src={Bag} alt="bag" className="h-4 w-4" />
-                  <p className="font-light text-sm">Add to Bag</p>
-                </div>
+              <Link href="/cart">
+                <div className="flex items-center space-x-4 mt-3 mb-8">
+                  <div className="flex flex-1 space-x-2 justify-center items-center py-3 rounded-[100px] bg-[#141414] text-white cursor-pointer">
+                    <Image src={Bag} alt="bag" className="h-4 w-4" />
+                    <p className="font-light text-sm">Add to Bag</p>
+                  </div>
 
-                <Image
-                  src={Love}
-                  alt="love"
-                  className="h-5 w-5 cursor-pointer"
-                />
-              </div>
+                  <Image
+                    src={Love}
+                    alt="love"
+                    className="h-5 w-5 cursor-pointer"
+                  />
+                </div>
+              </Link>
 
               <div>
                 <div
