@@ -10,7 +10,7 @@ const page = () => {
   const products = [
     {
       image: Image2,
-      name: "Novaweave Phantom",
+      name: "Novaweave Phantom Pulse",
       category: "Men's Shoes",
       noOfColours: 3,
       price: "100,540",

@@ -20,7 +20,7 @@ const NewCollections = () => {
   const collections = [
     {
       image: Image2,
-      name: "Novaweave Phantom",
+      name: "Novaweave Phantom Pulse",
       category: "Men's Shoes",
       noOfColours: 3,
       price: "100,540",
@@ -75,6 +75,7 @@ const NewCollections = () => {
               className={`h-[400px] cursor-pointer min-h-[400px] ${
                 activeIndex === index ? "max-w-80 pb-5" : "max-w-52 "
               }`}
+              key={index}
               onMouseEnter={() => setActiveIndex(index)}
               onMouseLeave={() => setActiveIndex(1)}
             >
