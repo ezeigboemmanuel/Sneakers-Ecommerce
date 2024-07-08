@@ -88,7 +88,7 @@ const page = () => {
                   </div>
                 </div>
               </div>
-              <Image src={Line} alt="line" className="mt-4 mb-4" />
+              <Image src={Line} alt="line" className="mt-4 mb-4 lg-md:w-[500px]" />
             </div>
           ))}
         </div>

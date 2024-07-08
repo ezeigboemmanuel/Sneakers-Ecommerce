@@ -33,9 +33,13 @@ export default function RootLayout({
       </head>
 
       <body className={`${inter.className}`}>
-        <Navbar />
+        <div className="max-w-[1440px] mx-auto">
+          <Navbar />
+        </div>
         <div className="max-w-[1440px] mx-auto">{children}</div>
-        <Footer />
+        <div className="max-w-[1440px] mx-auto">
+          <Footer />
+        </div>
       </body>
     </html>
   );

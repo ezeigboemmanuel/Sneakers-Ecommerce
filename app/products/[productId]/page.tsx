@@ -92,13 +92,13 @@ const page = () => {
 
       <div className="flex mx-auto">
         <div className="flex space-x-6 w-1/2">
-          <div className="min-w-[60px] flex flex-col space-y-4">
+          <div className="min-w-[60px] lg-md:min-w-[50px] flex flex-col space-y-4">
             {images.map((image, index) => (
               <div key={index}>
                 <Image
                   src={image.image}
                   alt="img"
-                  className="cursor-pointer w-[55px] hover:w-[60px]"
+                  className="cursor-pointer w-[55px] lg-md:w-[45px] lg-md:hover:w-[50px] hover:w-[60px]"
                   onClick={() => setActiveImage(image.image)}
                 />
               </div>
@@ -108,7 +108,7 @@ const page = () => {
             <Image
               src={activeImage}
               alt="img"
-              className="h-[550px] w-[400px]"
+              className="h-[550px] w-[400px] lg-md:h-[459px] lg-md:w-[350px]"
             />
           </div>
         </div>

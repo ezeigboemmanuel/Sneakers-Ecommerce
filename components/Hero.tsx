@@ -4,9 +4,9 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <div className="bg-[#1A1A1A] text-white px-8 h-[90vh] flex justify-around items-center">
+    <div className="bg-[#1A1A1A] text-white px-8 h-[60vh] lg-md:h-[90vh] md:h-[60vh] lg:h-[90vh] flex justify-around items-center">
       <div className="">
-        <h1 className="uppercase font-medium text-[60px] max-w-[550px]">
+        <h1 className="lg-md:text-[54px] md:text-[40px] uppercase font-medium lg:text-[60px] max-w-[550px]">
           Crafted for Champions. made for you!!!
         </h1>
 

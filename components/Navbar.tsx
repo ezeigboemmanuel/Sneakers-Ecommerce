@@ -10,33 +10,37 @@ import LoveOutline from "@/assets/icons/loveoutline.svg";
 import LoveFilled from "@/assets/icons/lovefilled.svg";
 import PersonOutline from "@/assets/icons/personoutline.svg";
 import PersonFilled from "@/assets/icons/personfilled.svg";
+import Ham from "@/assets/icons/ham.svg";
+import Close from "@/assets/icons/hamclose.svg";
+import { useNav } from "@/hooks/useNav";
 
 const Navbar = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const nav = useNav()
 
   const icons = [
     {
       outline: BagOutline,
       filled: BagFilled,
-      link: "/cart"
+      link: "/cart",
     },
     {
       outline: LoveOutline,
       filled: LoveFilled,
-      link: "/"
+      link: "/",
     },
     {
       outline: PersonOutline,
       filled: PersonFilled,
-      link: "/"
+      link: "/",
     },
   ];
   return (
-    <div className="bg-[#1A1A1A] text-white/[0.8] flex justify-between items-center px-8 py-3">
+    <div className="bg-[#1A1A1A] text-white/[0.8] flex justify-between items-center px-4 md:px-8 py-3">
       <Link href="/">
-        <Image src={Logo} alt="logo" />
+        <Image src={Logo} alt="logo" className="w-14 h-14" />
       </Link>
-      <div className="flex space-x-10 ">
+      <div className="hidden md:flex md:space-x-6 lg-md:space-x-10 lg:space-x-10 ">
         <Link href="/products">
           <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out">
             Men
@@ -53,8 +57,8 @@ const Navbar = () => {
           </p>
         </Link>
       </div>
-      <div className="flex space-x-8">
-        <div className="relative w-[300px] ">
+      <div className="flex space-x-4 md:space-x-8 items-center">
+        <div className="hidden md:inline-block relative w-[300px] ">
           <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
             <svg
               className="w-4 h-4 text-white/[0.7]"
@@ -80,18 +84,35 @@ const Navbar = () => {
             placeholder="Search"
           />
         </div>
-        <div className="flex space-x-4 justify-center items-center">
-          {icons.map((icon, index) => (
-            <Link href={icon.link} key={index}>
-              <Image
-                src={hoveredIndex === index ? icon.filled : icon.outline}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-                alt="icons"
-                className="w-[18.67px] h-[24px] cursor-pointer"
-              />
-            </Link>
-          ))}
+          {!nav.isOpen && <div className="flex space-x-4 justify-center items-center mr-3">
+            {icons.map((icon, index) => (
+              <Link href={icon.link} key={index}>
+                <Image
+                  src={hoveredIndex === index ? icon.filled : icon.outline}
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                  alt="icons"
+                  className="w-[18.67px] h-[24px] cursor-pointer"
+                />
+              </Link>
+            ))}
+          </div>}
+        <div>
+          {nav.isOpen ? (
+            <Image
+              src={Close}
+              alt="close"
+              className="w-[17px] h-[23px] cursor-pointer md:hidden"
+              onClick={nav.onClose}
+            />
+          ) : (
+            <Image
+              src={Ham}
+              alt="open"
+              className="w-[18.67px] h-[24px] cursor-pointer md:hidden"
+              onClick={nav.onOpen}
+            />
+          )}
         </div>
       </div>
     </div>
