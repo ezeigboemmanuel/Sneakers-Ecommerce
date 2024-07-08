@@ -43,7 +43,7 @@ const page = () => {
                 />
                 <div className="flex justify-between w-full">
                   <div>
-                    <h1 className="font-[500] text-[22px] text-]#141414]">
+                    <h1 className="font-[500] text-[22px] text-[#141414]">
                       {item.name}
                     </h1>
                     <p className="font-light text-sm mb-3">{item.category}</p>

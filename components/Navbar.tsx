@@ -18,14 +18,17 @@ const Navbar = () => {
     {
       outline: BagOutline,
       filled: BagFilled,
+      link: "/cart"
     },
     {
       outline: LoveOutline,
       filled: LoveFilled,
+      link: "/"
     },
     {
       outline: PersonOutline,
       filled: PersonFilled,
+      link: "/"
     },
   ];
   return (
@@ -35,13 +38,19 @@ const Navbar = () => {
       </Link>
       <div className="flex space-x-10 ">
         <Link href="/products">
-          <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out">Men</p>
+          <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out">
+            Men
+          </p>
         </Link>
         <Link href="/products">
-          <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out">Women</p>
+          <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out">
+            Women
+          </p>
         </Link>
         <Link href="/products">
-          <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out">Kids</p>
+          <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out">
+            Kids
+          </p>
         </Link>
       </div>
       <div className="flex space-x-8">
@@ -73,14 +82,15 @@ const Navbar = () => {
         </div>
         <div className="flex space-x-4 justify-center items-center">
           {icons.map((icon, index) => (
-            <Image
-              key={index}
-              src={hoveredIndex === index ? icon.filled : icon.outline}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-              alt="icons"
-              className="w-[18.67px] h-[24px] cursor-pointer"
-            />
+            <Link href={icon.link} key={index}>
+              <Image
+                src={hoveredIndex === index ? icon.filled : icon.outline}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                alt="icons"
+                className="w-[18.67px] h-[24px] cursor-pointer"
+              />
+            </Link>
           ))}
         </div>
       </div>

@@ -68,7 +68,7 @@ const Recommendations = () => {
     },
   ];
   return (
-    <div className="pt-16 px-8 mb-16">
+    <div className="pt-16 mb-16">
       <div className="flex justify-between items-center">
         <h1 className="text-[#2E2E2E] uppercase text-center text-[30px] font-[500] mb-8">
         You may also like

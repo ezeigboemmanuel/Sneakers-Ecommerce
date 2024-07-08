@@ -16,6 +16,8 @@ import Line from "@/assets/icons/line.svg";
 import Image2 from "@/assets/sneakers/image2.png";
 import Image3 from "@/assets/sneakers/image3.png";
 import Image5 from "@/assets/sneakers/image5.png";
+import Stars1 from "@/assets/icons/stars1.svg";
+import Stars2 from "@/assets/icons/stars2.svg";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -62,9 +64,24 @@ const page = () => {
       colours: [Image2, Image3, Image5],
       price: "100,540",
       sizes: ["36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46"],
-      description: `Experience the future of footwear with the Novaweave Phantom Pulse. This revolutionary sneaker boasts a never-before-seen Novaweave upper, crafted for unparalleled breathability and a featherweight feel. But the innovation doesn't stop there. A hidden "Phantom Pulse" feature adds a touch of the unexpected, whether it's a subtle illumination with movement or an adaptive technology that seamlessly conforms to your stride. The Novaweave Phantom Pulse - where cutting-edge design meets a hint of mystery.`,
+      description: `We're passionate about getting your fresh kicks to you fast. That's why we offer a variety of shipping options to choose from at checkout, ensuring you get your new favourites exactly when you need them. \n\nDidn't find your perfect fit? No worries! We understand that sometimes things don't work out as planned. Our hassle-free return policy allows you to return unworn items within 3 days for a full refund or exchange.`,
       shipping: `We strive to deliver your order promptly and efficiently. All orders are processed within 1-2 business days. Standard shipping typically takes 5-7 business days. Expedited and express shipping options are available at checkout for an additional fee.`,
-      reviews: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam porttitor mauris, quis sollicitudin sapien justo in libero.`,
+      reviews: [
+        {
+          stars: Stars1,
+          name: "Taiwo",
+          date: "8 July, 2024",
+          review:
+            "These shoes are incredible! So light and breathable, it feels like I'm walking on air",
+        },
+        {
+          stars: Stars2,
+          name: "Sarah B",
+          date: "8 July, 2024",
+          review:
+            "Not sure what the 'Phantom Pulse' does exactly, but these sneakers are amazing for running",
+        },
+      ],
     },
   ];
   return (
@@ -206,7 +223,15 @@ const page = () => {
                 </div>
                 {open === "reviews" && (
                   <div className="mb-4">
-                    <p className="font-normal">{item.reviews}</p>
+                    {item.reviews.map((review, index) => (
+                      <div key={index}>
+                        <div className="flex space-x-3 items-center mb-1">
+                          <Image src={review.stars} alt="stars" />
+                          <p className="text-[#141414]/[0.8] text-sm">{review.name} - {review.date}</p>
+                        </div>
+                        <p className="mb-2 text-[#141414] text-sm">{review.review}</p>
+                      </div>
+                    ))}
                   </div>
                 )}
               </div>
