@@ -109,7 +109,7 @@ const Navbar = () => {
             <Image
               src={Ham}
               alt="open"
-              className="w-[18.67px] h-[24px] cursor-pointer md:hidden"
+              className="w-[18.67px] h-[24px] cursor-pointer"
               onClick={nav.onOpen}
             />
           )}
