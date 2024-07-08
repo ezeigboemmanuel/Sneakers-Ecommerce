@@ -9,10 +9,11 @@ import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Navigation } from "swiper/modules";
+import "swiper/css/pagination";
+import { Navigation, Pagination } from "swiper/modules";
 import ArrowBack from "@/assets/icons/arrowback.svg";
 import ArrowForward from "@/assets/icons/arrowforward.svg";
-import "@/styles/bestsellers.css"
+import "@/styles/bestsellers.css";
 
 const BestSellers = () => {
   const collections = [
@@ -68,12 +69,12 @@ const BestSellers = () => {
     },
   ];
   return (
-    <div className="pt-16 px-8 mb-16">
+    <div className="pt-8 md:pt-16 px-4 md:px-8 mb-16">
       <div className="flex justify-between items-center">
-        <h1 className="text-[#2E2E2E] uppercase text-center text-[30px] font-[500] mb-8">
+        <h1 className="text-[#2E2E2E] uppercase w-full text-center md:text-left text-[24px] md:text-[30px] font-[500] mb-4 md:mb-8">
           best Sellers
         </h1>
-        <div className="slider-controler slider-controler2 space-x-4">
+        <div className="slider-controler slider-controler2 !space-x-12 !mr-8 !hidden md:!flex">
           <div className="swiper-button-prev swiper-button-prev2 slider-arrow slider-arrow2">
             <Image src={ArrowBack} alt="arrow-back" />
           </div>
@@ -85,6 +86,48 @@ const BestSellers = () => {
       </div>
 
       <Swiper
+        pagination={true}
+        slidesPerView={2}
+        spaceBetween={10}
+        modules={[Navigation, Pagination]}
+        className="mySwiper md:!hidden max-w-[1240px]"
+      >
+        {collections.map((collection, index) => (
+          <SwiperSlide key={index} className="max-w-[270px] pb-5">
+            <div className="max-w-80">
+              <Link
+                href="/products/productdetails"
+                key={index}
+                className="max-w-80 cursor-pointer"
+              >
+                <Image
+                  src={collection.image}
+                  alt={collection.name}
+                  className="rounded-lg hover:w-64 w-full"
+                />
+                <div className="">
+                  <p className="text-[17px] text-[#141414] font-[500]">
+                    {collection.name}
+                  </p>
+                  <p className="text-[14px] text-[#141414]/[0.8]">
+                    {collection.category}
+                  </p>
+                  <p className="text-[14px] text-[#141414]/[0.8]">
+                    {collection.noOfColours > 1
+                      ? `${collection.noOfColours} Colours`
+                      : `${collection.noOfColours} Colour`}
+                  </p>
+                  <p className="font-[500] text-[15px] text-[#141414]">
+                    ₦ {collection.price}
+                  </p>
+                </div>
+              </Link>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      <Swiper
         navigation={{
           nextEl: ".swiper-button-next2",
           prevEl: ".swiper-button-prev2",
@@ -92,12 +135,16 @@ const BestSellers = () => {
         slidesPerView={"auto"}
         spaceBetween={10}
         modules={[Navigation]}
-        className="mySwiper max-w-[1240px]"
+        className="mySwiper !hidden md:!inline-block max-w-[1240px]"
       >
         {collections.map((collection, index) => (
           <SwiperSlide key={index} className="max-w-[270px]">
             <div className="max-w-80">
-              <Link href="/products/productdetails" key={index} className="max-w-80 cursor-pointer">
+              <Link
+                href="/products/productdetails"
+                key={index}
+                className="max-w-80 cursor-pointer"
+              >
                 <Image
                   src={collection.image}
                   alt={collection.name}
