@@ -55,7 +55,7 @@ export default function RootLayout({
                 Lawal Jimoh (King LA) {" "}
               </Link>
               • Developed by: {" "}
-              <Link href="" className="hover:underline">
+              <Link href="https://zgboportfolio.vercel.app" className="hover:underline">
                 Emmanuel Ezeigbo (zgbocode)
               </Link>
             </p>
