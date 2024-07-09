@@ -51,11 +51,11 @@ export default function RootLayout({
 
             <p className="font-light text-sm text-center">
               © Designed by: {" "}
-              <Link href="https://www.behance.net/lajimoh" className="hover:underline">
+              <Link href="https://www.behance.net/lajimoh" target="_blank" className="hover:underline">
                 Lawal Jimoh (King LA) {" "}
               </Link>
               • Developed by: {" "}
-              <Link href="https://zgboportfolio.vercel.app" className="hover:underline">
+              <Link href="https://zgboportfolio.vercel.app" target="_blank" className="hover:underline">
                 Emmanuel Ezeigbo (zgbocode)
               </Link>
             </p>
