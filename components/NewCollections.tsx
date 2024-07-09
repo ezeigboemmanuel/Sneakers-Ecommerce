@@ -20,6 +20,7 @@ const NewCollections = () => {
   const [activeIndex, setActiveIndex] = useState(1);
   const collections = [
     {
+      id: "1",
       image: Image2,
       name: "Novaweave Phantom Pulse",
       category: "Men's Shoes",
@@ -27,6 +28,7 @@ const NewCollections = () => {
       price: "100,540",
     },
     {
+      id: "2",
       image: Image4,
       name: "Zephyr Swiftstrike Pro",
       category: "Men's Shoes",
@@ -34,6 +36,7 @@ const NewCollections = () => {
       price: "140,540",
     },
     {
+      id: "3",
       image: Image3,
       name: "Atlas Ascent GTX",
       category: "Women's Shoes",
@@ -41,6 +44,7 @@ const NewCollections = () => {
       price: "260,000",
     },
     {
+      id: "4",
       image: Image5,
       name: "Zephyr Swiftstrike Pro",
       category: "Men's Shoes",

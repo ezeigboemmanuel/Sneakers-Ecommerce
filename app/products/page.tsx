@@ -9,6 +9,7 @@ import Image from "next/image";
 const page = () => {
   const products = [
     {
+      id: "1",
       image: Image2,
       name: "Novaweave Phantom Pulse",
       category: "Men's Shoes",
@@ -16,6 +17,7 @@ const page = () => {
       price: "100,540",
     },
     {
+      id: "2",
       image: Image4,
       name: "Zephyr Swiftstrike Pro",
       category: "Men's Shoes",
@@ -23,6 +25,7 @@ const page = () => {
       price: "140,540",
     },
     {
+      id: "3",
       image: Image3,
       name: "Atlas Ascent GTX",
       category: "Women's Shoes",
@@ -30,6 +33,7 @@ const page = () => {
       price: "260,000",
     },
     {
+      id: "4",
       image: Image5,
       name: "Zephyr Swiftstrike Pro",
       category: "Men's Shoes",
@@ -37,6 +41,7 @@ const page = () => {
       price: "140,540",
     },
     {
+      id: "5",
       image: Image3,
       name: "Atlas Ascent GTX",
       category: "Women's Shoes",
@@ -44,6 +49,7 @@ const page = () => {
       price: "260,000",
     },
     {
+      id: "6",
       image: Image5,
       name: "Zephyr Swiftstrike Pro",
       category: "Men's Shoes",
@@ -52,6 +58,7 @@ const page = () => {
     },
 
     {
+      id: "7",
       image: Image2,
       name: "Novaweave Phantom",
       category: "Men's Shoes",
@@ -71,7 +78,7 @@ const page = () => {
             key={index}
             className="transition-all duration-500 ease-out md:h-[440px] max-w-[24rem] w-[98%] hover:w-[100%] mx-auto"
           >
-            <Link href="/products/productdetails" key={index}>
+            <Link href={`/products/${product.id}`} key={index}>
               <Image
                 src={product.image}
                 alt={product.name}

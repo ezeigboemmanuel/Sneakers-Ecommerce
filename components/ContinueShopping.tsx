@@ -18,6 +18,7 @@ import "@/styles/bestsellers.css";
 const ContinueShopping = () => {
   const collections = [
     {
+      id: "1",
       image: Image2,
       name: "Novaweave Phantom Pulse",
       category: "Men's Shoes",
@@ -25,6 +26,7 @@ const ContinueShopping = () => {
       price: "100,540",
     },
     {
+      id: "2",
       image: Image4,
       name: "Zephyr Swiftstrike Pro",
       category: "Men's Shoes",
@@ -32,6 +34,7 @@ const ContinueShopping = () => {
       price: "140,540",
     },
     {
+      id: "3",
       image: Image3,
       name: "Atlas Ascent GTX",
       category: "Women's Shoes",
@@ -39,6 +42,7 @@ const ContinueShopping = () => {
       price: "260,000",
     },
     {
+      id: "4",
       image: Image5,
       name: "Zephyr Swiftstrike Pro",
       category: "Men's Shoes",
@@ -46,6 +50,7 @@ const ContinueShopping = () => {
       price: "140,540",
     },
     {
+      id: "5",
       image: Image3,
       name: "Atlas Ascent GTX",
       category: "Women's Shoes",
@@ -53,6 +58,7 @@ const ContinueShopping = () => {
       price: "260,000",
     },
     {
+      id: "6",
       image: Image5,
       name: "Zephyr Swiftstrike Pro",
       category: "Men's Shoes",
@@ -61,6 +67,7 @@ const ContinueShopping = () => {
     },
 
     {
+      id: "7",
       image: Image2,
       name: "Novaweave Phantom",
       category: "Men's Shoes",

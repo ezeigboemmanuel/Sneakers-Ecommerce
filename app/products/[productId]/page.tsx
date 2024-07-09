@@ -2,37 +2,30 @@
 
 import Recommendations from "@/components/Recommendations";
 import PreImg1 from "@/assets/sneakers/preimg1.png";
-import PreImg2 from "@/assets/sneakers/preimg2.png";
-import PreImg3 from "@/assets/sneakers/preimg3.png";
-import PreImg4 from "@/assets/sneakers/preimg4.png";
-import PreImg5 from "@/assets/sneakers/preimg5.png";
-import PreImg6 from "@/assets/sneakers/preimg6.png";
 import Minus from "@/assets/icons/minus.svg";
 import Add from "@/assets/icons/add.svg";
 import Bag from "@/assets/icons/bagfilled.svg";
 import Love from "@/assets/icons/darkloveoutline.svg";
 import Up from "@/assets/icons/filterup.svg";
 import Line from "@/assets/icons/line.svg";
-import Image2 from "@/assets/sneakers/image2.png";
-import Image3 from "@/assets/sneakers/image3.png";
-import Image5 from "@/assets/sneakers/image5.png";
-import Stars1 from "@/assets/icons/stars1.svg";
-import Stars2 from "@/assets/icons/stars2.svg";
 import { useState } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import { Product, products } from "@/lib/data";
+import { products } from "@/lib/data";
+import { useRouter } from "next/navigation";
 
-type ProductPageProps = {
-  productf: Product;
-};
+const page = ({ params }: { params: { productId: string } }) => {
+  const router = useRouter()
+  const product = products.find((product) => product.id === params.productId);
+  console.log("PPPP", product);
 
-const page = ({ params}: { params: { productId: string }}) => {
-  console.log(params.productId);
-  const productf = products.find((product) => product.id === params.productId);
-  console.log("PPPP", productf)
+  if(!product){
+    router.push("/products")
+  }
 
-  const [activeImage, setActiveImage] = useState(PreImg1);
+  const [activeImage, setActiveImage] = useState<StaticImageData | "">(
+    product?.images[0].imageUrl || ""
+  );
   const [open, setOpen] = useState("description");
   const [quantity, setQuantity] = useState(1);
 
@@ -45,54 +38,7 @@ const page = ({ params}: { params: { productId: string }}) => {
       setQuantity(quantity - 1);
     }
   };
-  const images = [
-    {
-      image: PreImg1,
-    },
-    {
-      image: PreImg2,
-    },
-    {
-      image: PreImg3,
-    },
-    {
-      image: PreImg4,
-    },
-    {
-      image: PreImg5,
-    },
-    {
-      image: PreImg6,
-    },
-  ];
 
-  const product = [
-    {
-      name: "Novaweave Phantom Pulse",
-      category: "Men's Shoes",
-      colours: [Image2, Image3, Image5],
-      price: "100,540",
-      sizes: ["36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46"],
-      description: `We're passionate about getting your fresh kicks to you fast. That's why we offer a variety of shipping options to choose from at checkout, ensuring you get your new favourites exactly when you need them. \n\nDidn't find your perfect fit? No worries! We understand that sometimes things don't work out as planned. Our hassle-free return policy allows you to return unworn items within 3 days for a full refund or exchange.`,
-      shipping: `We strive to deliver your order promptly and efficiently. All orders are processed within 1-2 business days. Standard shipping typically takes 5-7 business days. Expedited and express shipping options are available at checkout for an additional fee.`,
-      reviews: [
-        {
-          stars: Stars1,
-          name: "Taiwo",
-          date: "8 July, 2024",
-          review:
-            "These shoes are incredible! So light and breathable, it feels like I'm walking on air",
-        },
-        {
-          stars: Stars2,
-          name: "Sarah B",
-          date: "8 July, 2024",
-          review:
-            "Not sure what the 'Phantom Pulse' does exactly, but these sneakers are amazing for running",
-        },
-      ],
-    },
-  ];
   return (
     <div className="px-4 md:px-6 lg-md:px-16 lg:px-16">
       <div className="py-2 md:py-8">
@@ -104,13 +50,13 @@ const page = ({ params}: { params: { productId: string }}) => {
       <div className="flex flex-col md:flex-row mx-auto">
         <div className="flex flex-col-reverse md:flex-row md:space-x-6 md:w-1/2 md:mr-4">
           <div className="w-full md:w-[40px] justify-around md:justify-normal md:min-w-[40px] lg-md:min-w-[50px] lg:min-w-[60px] flex items-center space-x-1 md:space-x-0 md:space-y-2 md:flex-col mt-3 mb-2 md:mb-0 md:mt-0">
-            {images.map((image, index) => (
+            {product?.images.map((image, index) => (
               <div key={index} className="">
                 <Image
-                  src={image.image}
+                  src={image.imageUrl}
                   alt="img"
                   className="cursor-pointer h-14 md:h-full md:w-[45px] md:hover:w-[50px] lg:w-[55px] lg-md:w-[45px] lg-md:hover:w-[50px] lg:hover:w-[60px]"
-                  onClick={() => setActiveImage(image.image)}
+                  onClick={() => setActiveImage(image.imageUrl)}
                 />
               </div>
             ))}
@@ -125,16 +71,15 @@ const page = ({ params}: { params: { productId: string }}) => {
         </div>
 
         <div className="md:w-1/2">
-          {product.map((item, index) => (
-            <div key={index}>
-              <h1 className="font-[500] text-3xl mb-1">{item.name}</h1>
-              <p className="font-light text-sm mb-3">{item.category}</p>
-              <p className="font-[500] mb-3">₦ {item.price}</p>
+            <div>
+              <h1 className="font-[500] text-3xl mb-1">{product?.name}</h1>
+              <p className="font-light text-sm mb-3">{product?.category}</p>
+              <p className="font-[500] mb-3">₦ {product?.price}</p>
 
               <div className="flex mb-3 items-center space-x-6">
                 <p className="font-light mr-2">Colours: </p>
                 <div className="flex space-x-1">
-                  {item.colours.map((colour, index) => (
+                  {product?.colours.map((colour, index) => (
                     <div key={index}>
                       <Image src={colour} alt="colour" className="w-6 h-6" />
                     </div>
@@ -145,7 +90,7 @@ const page = ({ params}: { params: { productId: string }}) => {
               <div className="flex mb-3 space-x-12">
                 <p className="font-light mr-2">Size: </p>
                 <div className="flex flex-wrap items-center justify-start">
-                  {item.sizes.map((size, index) => (
+                  {product?.sizes.map((size, index) => (
                     <p
                       key={index}
                       className="font-light text-sm border border-[#C0C0C0] flex justify-center items-center w-7 h-7 rounded-[4px] cursor-pointer hover:bg-black hover:text-white transition-colors duration-500 ease-in-out mr-2 mb-1"
@@ -200,7 +145,7 @@ const page = ({ params}: { params: { productId: string }}) => {
                 </div>
                 {open === "description" && (
                   <div className="mb-4">
-                    <p className="font-normal">{item.description}</p>
+                    <p className="font-normal">{product?.description}</p>
                   </div>
                 )}
               </div>
@@ -217,7 +162,7 @@ const page = ({ params}: { params: { productId: string }}) => {
                 </div>
                 {open === "shipping" && (
                   <div className="mb-4">
-                    <p className="font-normal">{item.shipping}</p>
+                    <p className="font-normal">{product?.shipping}</p>
                   </div>
                 )}
               </div>
@@ -234,7 +179,7 @@ const page = ({ params}: { params: { productId: string }}) => {
                 </div>
                 {open === "reviews" && (
                   <div className="mb-4">
-                    {item.reviews.map((review, index) => (
+                    {product?.reviews.map((review, index) => (
                       <div key={index}>
                         <div className="flex space-x-3 items-center mb-1">
                           <Image src={review.stars} alt="stars" />
@@ -253,7 +198,6 @@ const page = ({ params}: { params: { productId: string }}) => {
 
               <Image src={Line} alt="line" />
             </div>
-          ))}
         </div>
       </div>
 
