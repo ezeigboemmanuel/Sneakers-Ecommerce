@@ -60,22 +60,22 @@ const page = () => {
     },
   ];
   return (
-    <div className="px-8 mb-16">
-      <div className="py-8 pl-8 max-w-[1150px]">
+    <div className="px-4 md:px-8 mb-16">
+      <div className="py-4 md:py-8 lg-md:px-0 lg:px-8 max-w-[1150px]">
         <Filter />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-7 max-w-[1150px] mx-auto">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-7 max-w-[1150px] mx-auto">
         {products.map((product, index) => (
           <div
             key={index}
-            className="transition-all duration-500 ease-out h-[440px] max-w-[24rem] w-[98%] hover:w-[100%] mx-auto"
+            className="transition-all duration-500 ease-out md:h-[440px] max-w-[24rem] w-[98%] hover:w-[100%] mx-auto"
           >
             <Link href="/products/productdetails" key={index}>
               <Image
                 src={product.image}
                 alt={product.name}
-                className="rounded-2xl  w-full"
+                className="rounded-lg md:rounded-2xl  w-full"
               />
               <div className="">
                 <p className="text-[17px] text-[#141414] font-[500]">
