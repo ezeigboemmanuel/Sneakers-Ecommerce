@@ -29,10 +29,12 @@ const page = () => {
     },
   ];
   return (
-    <div className="px-16 py-8">
-      <div className="flex">
-        <div className="w-[65%]">
-          <h1 className="text-3xl font-[500] uppercase mb-8">Bag (2)</h1>
+    <div className="px-4 py-2 lg:px-16 md:py-8">
+      <div className="flex flex-col md:flex-row">
+        <div className="w-full md:w-[65%]">
+          <h1 className="text-2xl md:text-3xl font-[500] uppercase mb-2 md:mb-8">
+            Bag (2)
+          </h1>
           {product.map((item, index) => (
             <div key={index}>
               <div className="flex space-x-4">
@@ -41,20 +43,21 @@ const page = () => {
                   alt="image"
                   className="h-[150px] w-[160px] rounded-lg"
                 />
-                <div className="flex justify-between w-full">
+                <div className="flex flex-col md:flex-row justify-between w-full">
                   <div>
-                    <h1 className="font-[500] text-[22px] text-[#141414]">
+                    <h1 className="font-[500] text-[17px] md:text-[20px] lg:text-[22px] text-[#141414]">
                       {item.name}
                     </h1>
                     <p className="font-light text-sm mb-3">{item.category}</p>
+                    <p className="font-[500] mb-3 md:hidden">₦ {item.price}</p>
 
-                    <div className="flex space-x-2 items-center mb-3">
+                    <div className="flex space-x-6 md:space-x-3 items-center mb-3">
                       <p className="font-light text-sm">Colour:</p>
                       <Image src={ColourIcon} alt="colour" />
                     </div>
 
-                    <div className="flex items-center space-x-10">
-                      <div className="flex space-x-2 items-center">
+                    <div className="flex flex-col space-y-2 md:space-y-0 md:flex-row md:items-center md:space-x-5 lg-md:space-x-10 lg:space-x-10 mb-3 md:mb-0">
+                      <div className="flex space-x-10 md:space-x-3 items-center">
                         <p className="font-light text-sm">Size:</p>
                         <select className="font-light text-xs border border-[#C0C0C0] flex justify-center items-center w-10 h-6 rounded-[3px] cursor-pointer">
                           {item.sizes.map((size, index) => (
@@ -65,7 +68,7 @@ const page = () => {
                         </select>
                       </div>
 
-                      <div className="flex space-x-2 items-center">
+                      <div className="flex space-x-3 md:space-x-1 items-center">
                         <p className="font-light text-sm">Quantity:</p>
                         <select className="font-light text-xs border border-[#C0C0C0] flex justify-center items-center w-10 h-6 rounded-[3px] cursor-pointer">
                           {item.quantity.map((number, index) => (
@@ -75,25 +78,36 @@ const page = () => {
                           ))}
                         </select>
                       </div>
+
+                      <Image
+                        src={DeleteIcon}
+                        alt="delete"
+                        className="h-5 w-5 cursor-pointer hidden md:inline-block"
+                      />
                     </div>
                   </div>
 
-                  <div className="mr-8 flex flex-col justify-between h-[120px]">
-                    <p className="font-[500]">₦ {item.price}</p>
-                    <Image
-                      src={DeleteIcon}
-                      alt="delete"
-                      className="h-5 w-5 cursor-pointer"
-                    />
+                  <Image
+                    src={DeleteIcon}
+                    alt="delete"
+                    className="h-5 w-5 cursor-pointer md:hidden"
+                  />
+
+                  <div className="lg:mr-8 hidden md:flex flex-col w-full justify-between h-[120px]">
+                    <p className="font-[500] md:text-[15px] flex-1">{`₦ ${item.price}`}</p>
                   </div>
                 </div>
               </div>
-              <Image src={Line} alt="line" className="mt-4 mb-4 lg-md:w-[500px]" />
+              <Image
+                src={Line}
+                alt="line"
+                className="mt-4 mb-4 md:w-[400px] lg-md:w-[500px] lg:w-[590px]"
+              />
             </div>
           ))}
         </div>
 
-        <div className="bg-[#F8F8F8] border border-[#C0C0C0] rounded-[16px] px-6 pt-6 pb-10 w-[35%] h-[310px]">
+        <div className="bg-[#F8F8F8] border border-[#C0C0C0] rounded-[16px] px-6 pt-6 pb-10 w-full md:w-[35%] h-[310px]">
           <h1 className="font-[500] uppercase text-2xl mb-5">Summary</h1>
           <div className="flex justify-between items-center cursor-pointer mt-3 mb-3">
             <p className="text-[15px]">Sub total</p>
