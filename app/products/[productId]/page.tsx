@@ -85,20 +85,20 @@ const page = () => {
     },
   ];
   return (
-    <div className="px-16">
-      <div className="py-8">
-        <p className="text-sm font-light">Collections / Men's Shoes</p>
+    <div className="px-4 md:px-6 lg-md:px-16 lg:px-16">
+      <div className="py-2 md:py-8">
+        <p className="text-sm font-light hidden md:inline-block">Collections / Men's Shoes</p>
       </div>
 
-      <div className="flex mx-auto">
-        <div className="flex space-x-6 w-1/2">
-          <div className="min-w-[60px] lg-md:min-w-[50px] flex flex-col space-y-4">
+      <div className="flex flex-col md:flex-row mx-auto">
+        <div className="flex flex-col-reverse md:flex-row md:space-x-6 md:w-1/2 md:mr-4">
+          <div className="min-w-[30px] md:min-w-[40px] lg-md:min-w-[50px] lg:min-w-[60px] flex items-center space-x-1 md:space-x-0 md:space-y-2 md:flex-col mt-3 mb-2 md:mb-0 md:mt-0">
             {images.map((image, index) => (
-              <div key={index}>
+              <div key={index} className="">
                 <Image
                   src={image.image}
                   alt="img"
-                  className="cursor-pointer w-[55px] lg-md:w-[45px] lg-md:hover:w-[50px] hover:w-[60px]"
+                  className="cursor-pointer w-[35px] hover:w-[40px] md:w-[45px] md:hover:w-[50px] lg:w-[55px] lg-md:w-[45px] lg-md:hover:w-[50px] lg:hover:w-[60px]"
                   onClick={() => setActiveImage(image.image)}
                 />
               </div>
@@ -108,19 +108,19 @@ const page = () => {
             <Image
               src={activeImage}
               alt="img"
-              className="h-[550px] w-[400px] lg-md:h-[459px] lg-md:w-[350px]"
+              className="w-full max-w-[400px] md:max-w-full mx-auto h-[430px] md:h-[420px] lg:h-[550px] md:w-[400px] lg-md:h-[459px] lg-md:w-[350px]"
             />
           </div>
         </div>
 
-        <div className="w-1/2">
+        <div className="md:w-1/2">
           {product.map((item, index) => (
             <div key={index}>
               <h1 className="font-[500] text-3xl mb-1">{item.name}</h1>
               <p className="font-light text-sm mb-3">{item.category}</p>
               <p className="font-[500] mb-3">₦ {item.price}</p>
 
-              <div className="flex mb-3 items-center">
+              <div className="flex mb-3 items-center space-x-6">
                 <p className="font-light mr-2">Colours: </p>
                 <div className="flex space-x-1">
                   {item.colours.map((colour, index) => (
@@ -131,13 +131,13 @@ const page = () => {
                 </div>
               </div>
 
-              <div className="flex mb-3">
+              <div className="flex mb-3 space-x-12">
                 <p className="font-light mr-2">Size: </p>
-                <div className="flex space-x-2">
+                <div className="flex flex-wrap items-center justify-start">
                   {item.sizes.map((size, index) => (
                     <p
                       key={index}
-                      className="font-light text-sm border border-[#C0C0C0] flex justify-center items-center w-7 h-7 rounded-[4px] cursor-pointer hover:bg-black hover:text-white transition-colors duration-500 ease-in-out"
+                      className="font-light text-sm border border-[#C0C0C0] flex justify-center items-center w-7 h-7 rounded-[4px] cursor-pointer hover:bg-black hover:text-white transition-colors duration-500 ease-in-out mr-2 mb-1"
                     >
                       {size}
                     </p>
@@ -145,7 +145,7 @@ const page = () => {
                 </div>
               </div>
 
-              <div className="flex mb-4">
+              <div className="flex mb-4 space-x-5">
                 <p className="font-light mr-2">Quantity: </p>
                 <div className="flex space-x-2">
                   <Image
