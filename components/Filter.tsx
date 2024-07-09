@@ -52,7 +52,7 @@ const Filter = () => {
       </div>
 
       {open && (
-        <div className="flex p-5 font-light justify-around items-start border border-[#C0C0C0] rounded-xl bg-[#F8F8F8] mt-3">
+        <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row p-5 font-light justify-around items-start border border-[#C0C0C0] rounded-xl bg-[#F8F8F8] mt-3">
           <div>
             <h1 className="font-[500] mb-2">Gender</h1>
             <div>
@@ -67,11 +67,11 @@ const Filter = () => {
             </div>
           </div>
           <div>
-            <h1 className="font-[500] pl-4 mb-2">Colour</h1>
+            <h1 className="font-[500] md:pl-4 mb-2">Colour</h1>
             <div className="flex ">
               {filters.map((filter, index) => (
-                <div key={index} className="flex">
-                  <div className="pr-4">
+                <div key={index} className="flex mr-4 -ml-2 md:mr-0 md:ml-0">
+                  <div className="md:pr-4">
                     {filter.firstcolours?.map((colour, index) => (
                       <p key={index} className="text-sm mb-1 flex items-center">
                         <input type="checkbox" className="mr-2" />
