@@ -16,8 +16,8 @@ const Hero = () => {
           </button>
         </Link>
       </div>
-      <div className="absolute -right-12 lg:right-0 ">
-        <Image src={HeroImg} alt="hero_img" className="w-[300px] md:w-[540px] -rotate-12 md:rotate-0" />
+      <div className="absolute right-0 lg:right-10 overflow-hidden">
+        <Image src={HeroImg} alt="hero_img" className="w-[230px] md:w-[340px] lg-md:w-[380px] lg:w-[440px] -rotate-12 object-cover  bg-contain md:rotate-0" />
       </div>
     </div>
   );
