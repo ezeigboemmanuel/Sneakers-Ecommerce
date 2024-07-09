@@ -51,7 +51,7 @@ export default function RootLayout({
 
             <p className="font-light text-sm text-center">
               © Designed by: {" "}
-              <Link href="" className="hover:underline">
+              <Link href="https://www.behance.net/lajimoh" className="hover:underline">
                 Lawal Jimoh (King LA) {" "}
               </Link>
               • Developed by: {" "}
