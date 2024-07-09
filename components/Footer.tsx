@@ -5,20 +5,20 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <div className="bg-[#1A1A1A] px-8 py-10 text-white flex justify-between items-center">
-      <div>
-        <h1 className="uppercase mb-5">
+    <div className="bg-[#1A1A1A] px-4 md:px-8 py-10 text-white flex flex-col md:flex-row justify-between md:items-center">
+      <div className="mb-5 md:mb-0  md:mr-5">
+        <h1 className="uppercase text-[15px] md:text-base mb-2 md:mb-5">
           be the first to know about new products
         </h1>
-        <div className="relative w-[380px] ">
+        <div className="flex">
           <input
-            className="h-[36px] relative pr-10 border-[1px] border-white/[0.7] focus:border-white text-sm rounded-[8px] w-full py-2 px-3 text-white/[0.7] leading-tight focus:outline-none focus:shadow-outline bg-transparent"
+            className="h-[36px] pr-10 border-[1px] border-white/[0.7] focus:border-white text-sm rounded-[8px] w-full py-2 px-3 text-white/[0.7] leading-tight focus:outline-none focus:shadow-outline bg-transparent"
             id="links"
             type="text"
             placeholder="Your email address"
           />
 
-          <div className="absolute inset-y-0 start-[335px] flex items-center ps-3">
+          <div className="flex items-center -ml-5">
             <svg
               className="w-[35px] h-[35px] text-white/[0.7] rounded-r-[8px] cursor-pointer"
               width="40"
@@ -37,48 +37,48 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="flex space-x-16">
+      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 lg-md:space-x-16 lg:space-x-16">
         <div>
-          <h1 className="uppercase font-[500] mb-4">Explore</h1>
-          <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out cursor-pointer text-white/[0.8] mb-1">
+          <h1 className="uppercase font-[500] mb-1 md:mb-4">Explore</h1>
+          <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out cursor-pointer text-white/[0.8] md:mb-1">
             New Collections
           </p>
-          <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out cursor-pointer text-white/[0.8] mb-1">
+          <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out cursor-pointer text-white/[0.8] md:mb-1">
             Best Sellers
           </p>
-          <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out cursor-pointer text-white/[0.8] mb-1">
+          <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out cursor-pointer text-white/[0.8] md:mb-1">
             Our Collections
           </p>
         </div>
         <div>
-          <h1 className="uppercase font-[500] mb-4">Contact us</h1>
-          <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out cursor-pointer text-white/[0.8] mb-1">
+          <h1 className="uppercase font-[500] mb-1 md:mb-4">Contact us</h1>
+          <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out cursor-pointer text-white/[0.8] md:mb-1">
             +234 8123456789
           </p>
-          <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out cursor-pointer text-white/[0.8] mb-1">
+          <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out cursor-pointer text-white/[0.8] md:mb-1">
             +234 8123456789
           </p>
-          <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out cursor-pointer text-white/[0.8] mb-1">
+          <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out cursor-pointer text-white/[0.8] md:mb-1">
             sneakers@gmail.com
           </p>
         </div>
         <div className="">
-          <h1 className="uppercase font-[500] mb-4">Social</h1>
+          <h1 className="uppercase font-[500] mb-1 md:mb-4">Social</h1>
           <div className="flex space-x-1 justify-start items-center">
             <Image src={Twitter} alt="twitter" />
-            <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out cursor-pointer text-white/[0.8] mb-1">
+            <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out cursor-pointer text-white/[0.8] md:mb-1">
               Twitter
             </p>
           </div>
           <div className="flex space-x-1 justify-start items-center">
             <Image src={Instagram} alt="instagram" />
-            <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out cursor-pointer text-white/[0.8] mb-1">
+            <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out cursor-pointer text-white/[0.8] md:mb-1">
               Instagram
             </p>
           </div>
           <div className="flex space-x-1 justify-start items-center">
             <Image src={Tiktok} alt="tiktok" />
-            <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out cursor-pointer text-white/[0.8] mb-1">
+            <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out cursor-pointer text-white/[0.8] md:mb-1">
               Tiktok
             </p>
           </div>
