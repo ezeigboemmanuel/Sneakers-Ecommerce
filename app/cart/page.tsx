@@ -11,7 +11,7 @@ const page = () => {
   const product = [
     {
       Image: Image2,
-      name: "Novaweave Phantom Pulse",
+      name: "Novaweave Phantom",
       category: "Men's Shoes",
       colours: [],
       price: "100,540",
@@ -41,25 +41,25 @@ const page = () => {
                 <Image
                   src={item.Image}
                   alt="image"
-                  className="h-[150px] w-[160px] rounded-lg"
+                  className="w-[165px] h-[160px] md:h-[150px] md:w-[160px] rounded-lg"
                 />
                 <div className="flex flex-col md:flex-row justify-between w-full">
                   <div>
                     <h1 className="font-[500] text-[17px] md:text-[20px] lg:text-[22px] text-[#141414]">
                       {item.name}
                     </h1>
-                    <p className="font-light text-sm mb-3">{item.category}</p>
-                    <p className="font-[500] mb-3 md:hidden">₦ {item.price}</p>
+                    <p className="font-light text-xs md:text-sm md:mb-3">{item.category}</p>
+                    <p className="font-[500] text-sm md:text-base mb-1 md:mb-3 md:hidden">₦ {item.price}</p>
 
-                    <div className="flex space-x-6 md:space-x-3 items-center mb-3">
-                      <p className="font-light text-sm">Colour:</p>
-                      <Image src={ColourIcon} alt="colour" />
+                    <div className="flex space-x-6 md:space-x-3 items-center mb-1 md:mb-3">
+                      <p className="font-light text-xs md:text-sm">Colour:</p>
+                      <Image src={ColourIcon} alt="colour" className="w-4 h-4 md:w-auto" />
                     </div>
 
                     <div className="flex flex-col space-y-2 md:space-y-0 md:flex-row md:items-center md:space-x-5 lg-md:space-x-10 lg:space-x-10 mb-3 md:mb-0">
                       <div className="flex space-x-10 md:space-x-3 items-center">
-                        <p className="font-light text-sm">Size:</p>
-                        <select className="font-light text-xs border border-[#C0C0C0] flex justify-center items-center w-10 h-6 rounded-[3px] cursor-pointer">
+                        <p className="font-light text-xs md:text-sm">Size:</p>
+                        <select className="font-light text-xs border border-[#C0C0C0] flex justify-center items-center w-10 h-5 md:w-10 md:h-6 rounded-[3px] cursor-pointer">
                           {item.sizes.map((size, index) => (
                             <option key={index} value={size}>
                               {size}
@@ -68,9 +68,9 @@ const page = () => {
                         </select>
                       </div>
 
-                      <div className="flex space-x-3 md:space-x-1 items-center">
-                        <p className="font-light text-sm">Quantity:</p>
-                        <select className="font-light text-xs border border-[#C0C0C0] flex justify-center items-center w-10 h-6 rounded-[3px] cursor-pointer">
+                      <div className="flex space-x-4 md:space-x-1 items-center">
+                        <p className="font-light text-xs md:text-sm">Quantity:</p>
+                        <select className="font-light text-xs border border-[#C0C0C0] flex justify-center items-center w-10 h-5 md:w-10 md:h-6  rounded-[3px] cursor-pointer">
                           {item.quantity.map((number, index) => (
                             <option key={index} value={number}>
                               {number}
@@ -82,7 +82,7 @@ const page = () => {
                       <Image
                         src={DeleteIcon}
                         alt="delete"
-                        className="h-5 w-5 cursor-pointer hidden md:inline-block"
+                        className="h-3 w-3 md:h-5 md:w-5 cursor-pointer hidden md:inline-block"
                       />
                     </div>
                   </div>
@@ -90,7 +90,7 @@ const page = () => {
                   <Image
                     src={DeleteIcon}
                     alt="delete"
-                    className="h-5 w-5 cursor-pointer md:hidden"
+                    className="h-3 w-3 md:h-5 md:w-5 cursor-pointer md:hidden"
                   />
 
                   <div className="lg:mr-8 hidden md:flex flex-col w-full justify-between h-[120px]">

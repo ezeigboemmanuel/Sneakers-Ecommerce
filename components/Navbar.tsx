@@ -97,7 +97,7 @@ const Navbar = () => {
               </Link>
             ))}
           </div>}
-        <div>
+        <div className="md:hidden">
           {nav.isOpen ? (
             <Image
               src={Close}

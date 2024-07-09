@@ -2,10 +2,11 @@ import Twitter from "@/assets/icons/twitter.svg";
 import Instagram from "@/assets/icons/instagram.svg";
 import Tiktok from "@/assets/icons/tiktok.svg";
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="bg-[#1A1A1A] px-4 md:px-8 py-10 text-white flex flex-col md:flex-row justify-between md:items-center">
+    <div className="bg-[#1A1A1A] px-4 md:px-8 py-10 text-white flex flex-col md:flex-row justify-between md:items-center h-full">
       <div className="mb-5 md:mb-0  md:mr-5">
         <h1 className="uppercase text-[15px] md:text-base mb-2 md:mb-5">
           be the first to know about new products

@@ -92,13 +92,13 @@ const page = () => {
 
       <div className="flex flex-col md:flex-row mx-auto">
         <div className="flex flex-col-reverse md:flex-row md:space-x-6 md:w-1/2 md:mr-4">
-          <div className="min-w-[30px] md:min-w-[40px] lg-md:min-w-[50px] lg:min-w-[60px] flex items-center space-x-1 md:space-x-0 md:space-y-2 md:flex-col mt-3 mb-2 md:mb-0 md:mt-0">
+          <div className="w-full justify-around md:justify-normal md:min-w-[40px] lg-md:min-w-[50px] lg:min-w-[60px] flex items-center space-x-1 md:space-x-0 md:space-y-2 md:flex-col mt-3 mb-2 md:mb-0 md:mt-0">
             {images.map((image, index) => (
               <div key={index} className="">
                 <Image
                   src={image.image}
                   alt="img"
-                  className="cursor-pointer w-[35px] hover:w-[40px] md:w-[45px] md:hover:w-[50px] lg:w-[55px] lg-md:w-[45px] lg-md:hover:w-[50px] lg:hover:w-[60px]"
+                  className="cursor-pointer min-w-full h-14 hover:w-[40px] md:w-[45px] md:hover:w-[50px] lg:w-[55px] lg-md:w-[45px] lg-md:hover:w-[50px] lg:hover:w-[60px]"
                   onClick={() => setActiveImage(image.image)}
                 />
               </div>

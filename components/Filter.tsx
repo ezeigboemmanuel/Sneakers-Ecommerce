@@ -36,7 +36,7 @@ const Filter = () => {
   ];
   return (
     <div>
-      <div className="flex space-x-5">
+      <div className="flex justify-between md:justify-normal md:space-x-5">
         <div
           className="flex items-center space-x-2 cursor-pointer"
           onClick={() => setOpen(!open)}
@@ -52,7 +52,7 @@ const Filter = () => {
       </div>
 
       {open && (
-        <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row p-5 font-light justify-around items-start border border-[#C0C0C0] rounded-xl bg-[#F8F8F8] mt-3">
+        <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row p-5 font-light justify-around items-start border md:border-[#C0C0C0] md:rounded-xl bg-[#F8F8F8] mt-3">
           <div>
             <h1 className="font-[500] mb-2">Gender</h1>
             <div>
@@ -75,6 +75,7 @@ const Filter = () => {
                     {filter.firstcolours?.map((colour, index) => (
                       <p key={index} className="text-sm mb-1 flex items-center">
                         <input type="checkbox" className="mr-2" />
+                        <div className="w-3 h-3 rounded-full mr-1" style={{backgroundColor: colour}}></div>
                         {colour}
                       </p>
                     ))}
@@ -83,6 +84,7 @@ const Filter = () => {
                     {filter.secondcolours?.map((colour, index) => (
                       <p key={index} className="text-sm mb-1 flex items-center">
                         <input type="checkbox" className="mr-2" />
+                        <div className="w-3 h-3 rounded-full mr-1" style={{backgroundColor: colour}}></div>
                         {colour}
                       </p>
                     ))}

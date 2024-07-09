@@ -28,21 +28,21 @@ const page = () => {
     },
   ];
   return (
-    <div className="px-16 py-8">
-      <div className="flex">
-        <div className="w-[65%] mr-5">
-          <h1 className="text-3xl font-[500] uppercase mb-8">Check out</h1>
+    <div className="px-4 py-2 lg:px-16 md:py-8">
+      <div className="flex flex-col md:flex-row">
+        <div className="md:w-[65%] md:mr-5">
+          <h1 className="text-2xl md:text-3xl font-[500] uppercase mb-4 md:mb-8">Check out</h1>
 
           <div className="">
             <div className="flex justify-between items-center cursor-pointer mb-3">
-              <h1 className="font-[500] text-[22px] uppercase">
+              <h1 className="font-[500] text-[18px] md:text-[22px] uppercase">
                 1. Contact information
               </h1>
               <Image src={Up} alt="up" className="h-[14px] w-[14px]" />
             </div>
 
-            <div className="mb-10">
-              <div className="flex space-x-3 w-full mb-6">
+            <div className="mb-5 md:mb-10">
+              <div className="flex flex-col md:flex-row md:space-x-3 space-y-3 md:space-y-0 w-full mb-3 md:mb-6">
                 <div className="w-full">
                   <p className="text-sm font-[400] text-[#2E2E2E] mb-1">
                     First Name
@@ -64,7 +64,7 @@ const page = () => {
                   />
                 </div>
               </div>
-              <div className="flex space-x-3 w-full">
+              <div className="flex flex-col md:flex-row md:space-x-3 space-y-3 md:space-y-0 w-full">
                 <div className="w-full">
                   <p className="text-sm font-[400] text-[#2E2E2E] mb-1">
                     Email address
@@ -90,12 +90,12 @@ const page = () => {
           </div>
 
           <div className="flex justify-between items-center cursor-pointer mb-3">
-            <h1 className="font-[500] text-[22px] uppercase">2. Address</h1>
+            <h1 className="font-[500] text-[18px] md:text-[22px] uppercase">2. Address</h1>
             <Image src={Up} alt="up" className="h-[14px] w-[14px]" />
           </div>
 
-          <div className="mb-10">
-            <div className="flex space-x-3 w-full mb-6">
+          <div className="mb-5 md:mb-10">
+            <div className="flex flex-col md:flex-row md:space-x-3 space-y-3 md:space-y-0 w-full mb-3 md:mb-6">
               <div className="w-full">
                 <p className="text-sm font-[400] text-[#2E2E2E] mb-1">
                   Address
@@ -107,7 +107,7 @@ const page = () => {
                 />
               </div>
             </div>
-            <div className="flex space-x-3 w-full">
+            <div className="flex flex-col md:flex-row md:space-x-3 space-y-3 md:space-y-0 w-full">
               <div className="w-full">
                 <p className="text-sm font-[400] text-[#2E2E2E] mb-1">City</p>
                 <input
@@ -129,19 +129,19 @@ const page = () => {
             </div>
           </div>
 
-          <div className="flex justify-between items-center cursor-pointer mb-10">
-            <h1 className="font-[500] text-[22px] uppercase">3. Payment</h1>
+          <div className="flex justify-between items-center cursor-pointer mb-5 md:mb-10">
+            <h1 className="font-[500] text-[18px] md:text-[22px] uppercase">3. Payment</h1>
             <Image src={Up} alt="up" className="h-[14px] w-[14px]" />
           </div>
 
           <div className="flex w-full justify-center items-center mb-10">
             <div className="flex flex-1 space-x-2 max-w-[500px] justify-center items-center py-3 rounded-[100px] bg-[#141414] text-white cursor-pointer">
-              <p className="font-light text-sm">Pay Now</p>
+              <p className="font-light text-sm hover:font-[400]">Pay Now</p>
             </div>
           </div>
         </div>
 
-        <div className="bg-[#F8F8F8] border border-[#C0C0C0] rounded-[16px] px-6 pt-6 pb-10 w-[35%] h-[500px]">
+        <div className="hidden md:inline-block bg-[#F8F8F8] border border-[#C0C0C0] rounded-[16px] px-6 pt-6 pb-10 w-[35%] md:h-[550px] lg:h-[500px]">
           <h1 className="font-[500] uppercase text-2xl mb-5">Summary</h1>
           <div className="flex justify-between items-center cursor-pointer mt-3 mb-3">
             <p className="text-[15px]">Sub total</p>

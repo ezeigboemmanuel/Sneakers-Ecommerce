@@ -28,19 +28,45 @@ const NavProvider = () => {
             />
           </div>
           <div className="mt-10 flex flex-col space-y-2">
+            <div className="relative w-full ">
+              <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                <svg
+                  className="w-4 h-4 text-white/[0.7]"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                  />
+                </svg>
+              </div>
+
+              <input
+                className="h-[36px] relative pl-10 border-[1px] border-white/[0.7] focus:border-white text-sm rounded-[8px] w-full py-2 px-3 text-white/[0.7] leading-tight focus:outline-none focus:shadow-outline bg-transparent"
+                id="links"
+                type="text"
+                placeholder="Search"
+              />
+            </div>
             <Link href="/products" onClick={nav.onClose}>
-              <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out">
+              <p className="font-light text-white/[0.8] hover:font-normal hover:text-white transition-colors duration-500 ease-in-out">
                 Men
               </p>
             </Link>
 
             <Link href="/products" onClick={nav.onClose}>
-              <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out">
+              <p className="font-light text-white/[0.8] hover:font-normal hover:text-white transition-colors duration-500 ease-in-out">
                 Women
               </p>
             </Link>
             <Link href="/products" onClick={nav.onClose}>
-              <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out">
+              <p className="font-light text-white/[0.8] hover:font-normal hover:text-white transition-colors duration-500 ease-in-out">
                 Kids
               </p>
             </Link>

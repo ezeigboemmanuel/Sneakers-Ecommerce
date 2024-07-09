@@ -60,7 +60,7 @@ const page = () => {
     },
   ];
   return (
-    <div className="px-4 md:px-8 mb-16">
+    <div className="relative px-4 md:px-8 mb-16">
       <div className="py-4 md:py-8 lg-md:px-0 lg:px-8 max-w-[1150px]">
         <Filter />
       </div>
