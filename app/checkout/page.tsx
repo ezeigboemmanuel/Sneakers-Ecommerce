@@ -31,7 +31,9 @@ const page = () => {
     <div className="px-4 py-2 lg:px-16 md:py-8">
       <div className="flex flex-col md:flex-row">
         <div className="md:w-[65%] md:mr-5">
-          <h1 className="text-2xl md:text-3xl font-[500] uppercase mb-4 md:mb-8">Check out</h1>
+          <h1 className="text-2xl md:text-3xl font-[500] uppercase mb-4 md:mb-8">
+            Check out
+          </h1>
 
           <div className="">
             <div className="flex justify-between items-center cursor-pointer mb-3">
@@ -90,7 +92,9 @@ const page = () => {
           </div>
 
           <div className="flex justify-between items-center cursor-pointer mb-3">
-            <h1 className="font-[500] text-[18px] md:text-[22px] uppercase">2. Address</h1>
+            <h1 className="font-[500] text-[18px] md:text-[22px] uppercase">
+              2. Address
+            </h1>
             <Image src={Up} alt="up" className="h-[14px] w-[14px]" />
           </div>
 
@@ -130,15 +134,19 @@ const page = () => {
           </div>
 
           <div className="flex justify-between items-center cursor-pointer mb-5 md:mb-10">
-            <h1 className="font-[500] text-[18px] md:text-[22px] uppercase">3. Payment</h1>
+            <h1 className="font-[500] text-[18px] md:text-[22px] uppercase">
+              3. Payment
+            </h1>
             <Image src={Up} alt="up" className="h-[14px] w-[14px]" />
           </div>
 
-          <div className="flex w-full justify-center items-center mb-10">
-            <div className="flex flex-1 space-x-2 max-w-[500px] justify-center items-center py-3 rounded-[100px] bg-[#141414] text-white cursor-pointer">
-              <p className="font-light text-sm hover:font-[400]">Pay Now</p>
+          <Link href="/paid">
+            <div className="flex w-full justify-center items-center mb-10">
+              <div className="flex flex-1 space-x-2 max-w-[500px] justify-center items-center py-3 rounded-[100px] bg-[#141414] text-white cursor-pointerhover:font-[400]">
+                <p className="font-light text-sm hover:font-[400]">Pay Now</p>
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
 
         <div className="hidden md:inline-block bg-[#F8F8F8] border border-[#C0C0C0] rounded-[16px] px-6 pt-6 pb-10 w-[35%] md:h-[550px] lg:h-[500px]">
