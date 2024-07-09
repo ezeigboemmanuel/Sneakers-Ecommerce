@@ -21,8 +21,17 @@ import Stars2 from "@/assets/icons/stars2.svg";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Product, products } from "@/lib/data";
 
-const page = () => {
+type ProductPageProps = {
+  productf: Product;
+};
+
+const page = ({ params}: { params: { productId: string }}) => {
+  console.log(params.productId);
+  const productf = products.find((product) => product.id === params.productId);
+  console.log("PPPP", productf)
+
   const [activeImage, setActiveImage] = useState(PreImg1);
   const [open, setOpen] = useState("description");
   const [quantity, setQuantity] = useState(1);
@@ -87,7 +96,9 @@ const page = () => {
   return (
     <div className="px-4 md:px-6 lg-md:px-16 lg:px-16">
       <div className="py-2 md:py-8">
-        <p className="text-sm font-light hidden md:inline-block">Collections / Men's Shoes</p>
+        <p className="text-sm font-light hidden md:inline-block">
+          Collections / Men's Shoes
+        </p>
       </div>
 
       <div className="flex flex-col md:flex-row mx-auto">
@@ -227,9 +238,13 @@ const page = () => {
                       <div key={index}>
                         <div className="flex space-x-3 items-center mb-1">
                           <Image src={review.stars} alt="stars" />
-                          <p className="text-[#141414]/[0.8] text-sm">{review.name} - {review.date}</p>
+                          <p className="text-[#141414]/[0.8] text-sm">
+                            {review.name} - {review.date}
+                          </p>
                         </div>
-                        <p className="mb-2 text-[#141414] text-sm">{review.review}</p>
+                        <p className="mb-2 text-[#141414] text-sm">
+                          {review.review}
+                        </p>
                       </div>
                     ))}
                   </div>
