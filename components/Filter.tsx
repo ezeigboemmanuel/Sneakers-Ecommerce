@@ -45,10 +45,12 @@ const Filter = () => {
           <Image src={FilterDown} alt="filter_down" />
         </div>
 
-        <div className="flex items-center space-x-3 cursor-pointer">
-          <p className="text-[#2E2E2E]/[0.8]">Clear all</p>
-          <Image src={Close} alt="close" />
-        </div>
+        {open && (
+          <div className="flex items-center space-x-3 cursor-pointer">
+            <p className="text-[#2E2E2E]/[0.8]">Clear all</p>
+            <Image src={Close} alt="close" />
+          </div>
+        )}
       </div>
 
       {open && (
@@ -75,7 +77,10 @@ const Filter = () => {
                     {filter.firstcolours?.map((colour, index) => (
                       <p key={index} className="text-sm mb-1 flex items-center">
                         <input type="checkbox" className="mr-2" />
-                        <div className="w-3 h-3 rounded-full mr-1" style={{backgroundColor: colour}}></div>
+                        <div
+                          className="w-3 h-3 rounded-full mr-1"
+                          style={{ backgroundColor: colour }}
+                        ></div>
                         {colour}
                       </p>
                     ))}
@@ -84,7 +89,10 @@ const Filter = () => {
                     {filter.secondcolours?.map((colour, index) => (
                       <p key={index} className="text-sm mb-1 flex items-center">
                         <input type="checkbox" className="mr-2" />
-                        <div className="w-3 h-3 rounded-full mr-1" style={{backgroundColor: colour}}></div>
+                        <div
+                          className="w-3 h-3 rounded-full mr-1"
+                          style={{ backgroundColor: colour }}
+                        ></div>
                         {colour}
                       </p>
                     ))}
@@ -119,7 +127,10 @@ const Filter = () => {
               )}
             </div>
           </div>
-          <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setOpen(false)}>
+          <div
+            className="flex items-center space-x-3 cursor-pointer"
+            onClick={() => setOpen(false)}
+          >
             <p className="text-[#2E2E2E]/[0.8]">Close</p>
             <Image src={Close} alt="close" />
           </div>
