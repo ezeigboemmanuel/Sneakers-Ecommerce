@@ -35,13 +35,13 @@ const page = () => {
     {
       id: "4",
       image: Image5,
-      name: "Zephyr Swiftstrike Pro",
+      name: "Surge Conduit Bioflex",
       category: "Men's Shoes",
       noOfColours: 1,
-      price: "140,540",
+      price: "40,540",
     },
     {
-      id: "5",
+      id: "3",
       image: Image3,
       name: "Atlas Ascent GTX",
       category: "Women's Shoes",
@@ -49,8 +49,8 @@ const page = () => {
       price: "260,000",
     },
     {
-      id: "6",
-      image: Image5,
+      id: "2",
+      image: Image4,
       name: "Zephyr Swiftstrike Pro",
       category: "Men's Shoes",
       noOfColours: 1,
@@ -58,7 +58,7 @@ const page = () => {
     },
 
     {
-      id: "7",
+      id: "1",
       image: Image2,
       name: "Novaweave Phantom",
       category: "Men's Shoes",
