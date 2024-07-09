@@ -55,7 +55,7 @@ const page = ({ params }: { params: { productId: string } }) => {
                 <Image
                   src={image.imageUrl}
                   alt="img"
-                  className="cursor-pointer h-14 md:h-full md:w-[45px] md:hover:w-[50px] lg:w-[55px] lg-md:w-[45px] lg-md:hover:w-[50px] lg:hover:w-[60px]"
+                  className="cursor-pointer h-14 md:h-full md:w-[45px] md:hover:w-[50px] lg:w-[55px] lg-md:w-[45px] lg-md:hover:w-[50px] lg:hover:w-[60px] rounded-xl"
                   onClick={() => setActiveImage(image.imageUrl)}
                 />
               </div>
@@ -65,7 +65,7 @@ const page = ({ params }: { params: { productId: string } }) => {
             <Image
               src={activeImage}
               alt="img"
-              className="w-full max-w-[400px] md:max-w-full mx-auto h-[430px] md:h-[420px] lg:h-[550px] md:w-[400px] lg-md:h-[459px] lg-md:w-[350px]"
+              className="w-full max-w-[400px] md:max-w-full mx-auto h-[430px] md:h-[420px] lg:h-[550px] md:w-[400px] lg-md:h-[459px] lg-md:w-[350px] rounded-xl"
             />
           </div>
         </div>

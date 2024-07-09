@@ -46,10 +46,10 @@ const NewCollections = () => {
     {
       id: "4",
       image: Image5,
-      name: "Zephyr Swiftstrike Pro",
+      name: "Surge Conduit Bioflex",
       category: "Men's Shoes",
       noOfColours: 1,
-      price: "140,540",
+      price: "40,540",
     },
   ];
   return (
@@ -67,7 +67,7 @@ const NewCollections = () => {
           {collections.map((collection, index) => (
             <SwiperSlide className={`cursor-pointer pb-5 mr-2 text-center`} key={index}>
               <div className={`cursor-pointer`}>
-                <Link href="/products/productdetails" key={index}>
+                <Link href={`/products/${collection.id}`} key={index}>
                   <Image
                     src={collection.image}
                     alt={collection.name}
@@ -125,7 +125,7 @@ const NewCollections = () => {
                   activeIndex === index ? "md:max-w-[247px] lg-md:max-w-80 lg:max-w-80 pb-5" : "md:max-w-[167px] lg-md:max-w-52 lg:max-w-52"
                 }`}
               >
-                <Link href="/products/productdetails" key={index}>
+                <Link href={`/products/${collection.id}`} key={index}>
                   <Image
                     src={collection.image}
                     alt={collection.name}
