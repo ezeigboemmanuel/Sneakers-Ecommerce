@@ -98,7 +98,7 @@ const page = () => {
                 <Image
                   src={image.image}
                   alt="img"
-                  className="cursor-pointer h-14 md:h-full hover:w-[40px] md:w-[45px] md:hover:w-[50px] lg:w-[55px] lg-md:w-[45px] lg-md:hover:w-[50px] lg:hover:w-[60px]"
+                  className="cursor-pointer h-14 md:h-full md:w-[45px] md:hover:w-[50px] lg:w-[55px] lg-md:w-[45px] lg-md:hover:w-[50px] lg:hover:w-[60px]"
                   onClick={() => setActiveImage(image.image)}
                 />
               </div>
