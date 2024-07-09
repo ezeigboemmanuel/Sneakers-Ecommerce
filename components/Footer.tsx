@@ -19,9 +19,9 @@ const Footer = () => {
             placeholder="Your email address"
           />
 
-          <div className="flex items-center -ml-5">
+          <div className="flex items-center -ml-[35px]">
             <svg
-              className="w-[35px] h-[35px] text-white/[0.7] rounded-r-[8px] cursor-pointer"
+              className="w-[35px] h-[36px] text-white/[0.7] rounded-r-[8px] cursor-pointer"
               width="40"
               height="40"
               viewBox="0 0 40 40"
