@@ -54,18 +54,18 @@ const NavProvider = () => {
                 placeholder="Search"
               />
             </div>
-            <Link href="/products" onClick={nav.onClose}>
+            <Link href="/men" onClick={nav.onClose}>
               <p className="font-light text-white/[0.8] hover:font-normal hover:text-white transition-colors duration-500 ease-in-out">
                 Men
               </p>
             </Link>
 
-            <Link href="/products" onClick={nav.onClose}>
+            <Link href="/women" onClick={nav.onClose}>
               <p className="font-light text-white/[0.8] hover:font-normal hover:text-white transition-colors duration-500 ease-in-out">
                 Women
               </p>
             </Link>
-            <Link href="/products" onClick={nav.onClose}>
+            <Link href="/kids" onClick={nav.onClose}>
               <p className="font-light text-white/[0.8] hover:font-normal hover:text-white transition-colors duration-500 ease-in-out">
                 Kids
               </p>

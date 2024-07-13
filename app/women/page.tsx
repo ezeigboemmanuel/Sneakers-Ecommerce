@@ -1,6 +1,5 @@
 "use client";
 
-import Filter from "@/components/Filter";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -18,14 +17,16 @@ const page = () => {
       });
   }, []);
 
+  const filteredCollections = collections?.items?.filter(
+    (collection) => collection.categories[0].name == "women's shoes"
+  );
+
   return (
     <div className="relative px-4 md:px-8 mb-16">
-      <div className="py-4 md:py-8 lg-md:px-0 lg:px-8 max-w-[1150px]">
-        <Filter />
-      </div>
+      <div className="py-4 md:py-8 lg-md:px-0 lg:px-8 max-w-[1150px]"></div>
 
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-7 max-w-[1150px] mx-auto">
-        {collections?.items.map((collection, index) => (
+        {filteredCollections?.map((collection, index) => (
           <div
             key={index}
             className="transition-all duration-500 ease-out max-w-[24rem] w-[98%] mx-auto"

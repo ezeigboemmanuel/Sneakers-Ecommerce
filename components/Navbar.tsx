@@ -41,17 +41,17 @@ const Navbar = () => {
         <Image src={Logo} alt="logo" className="w-14 h-14" />
       </Link>
       <div className="hidden md:flex md:space-x-6 lg-md:space-x-10 lg:space-x-10 ">
-        <Link href="/products">
+        <Link href="/men">
           <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out">
             Men
           </p>
         </Link>
-        <Link href="/products">
+        <Link href="/women">
           <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out">
             Women
           </p>
         </Link>
-        <Link href="/products">
+        <Link href="/kids">
           <p className="font-light hover:font-normal hover:text-white transition-colors duration-500 ease-in-out">
             Kids
           </p>

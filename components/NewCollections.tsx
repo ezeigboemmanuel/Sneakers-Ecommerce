@@ -1,11 +1,7 @@
 "use client";
 
-import Image4 from "@/assets/sneakers/image4.png";
-import Image2 from "@/assets/sneakers/image2.png";
-import Image3 from "@/assets/sneakers/image3.png";
-import Image5 from "@/assets/sneakers/image5.png";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -16,42 +12,21 @@ import ArrowBack from "@/assets/icons/arrowback.svg";
 import ArrowForward from "@/assets/icons/arrowforward.svg";
 import "@/styles/collections.css";
 
+
 const NewCollections = () => {
   const [activeIndex, setActiveIndex] = useState(1);
-  const collections = [
-    {
-      id: "1",
-      image: Image2,
-      name: "Novaweave Phantom Pulse",
-      category: "Men's Shoes",
-      noOfColours: 3,
-      price: "100,540",
-    },
-    {
-      id: "2",
-      image: Image4,
-      name: "Zephyr Swiftstrike Pro",
-      category: "Men's Shoes",
-      noOfColours: 1,
-      price: "140,540",
-    },
-    {
-      id: "3",
-      image: Image3,
-      name: "Atlas Ascent GTX",
-      category: "Women's Shoes",
-      noOfColours: 4,
-      price: "260,000",
-    },
-    {
-      id: "4",
-      image: Image5,
-      name: "Surge Conduit Bioflex",
-      category: "Men's Shoes",
-      noOfColours: 1,
-      price: "40,540",
-    },
-  ];
+  const [collections, setCollections] = useState<Collections | null>(null);
+
+  useEffect(() => {
+    fetch("/api/products")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setCollections(data);
+      });
+  }, []);
+
   return (
     <div className="pt-7 md:pt-14 px-4 md:px-8">
       <h1 className="text-[#2E2E2E] uppercase text-center text-[24px] md:text-[30px] font-[500] mb-4 md:mb-8">
@@ -64,29 +39,32 @@ const NewCollections = () => {
           modules={[Navigation, Pagination]}
           className="mySwiper md:!hidden"
         >
-          {collections.map((collection, index) => (
-            <SwiperSlide className={`cursor-pointer pb-5 mr-2 text-center`} key={index}>
+          {collections?.items.slice(0, 4).map((collection, index) => (
+            <SwiperSlide
+              className={`cursor-pointer pb-5 mr-2 mx-auto text-center`}
+              key={index}
+            >
               <div className={`cursor-pointer`}>
                 <Link href={`/products/${collection.id}`} key={index}>
                   <Image
-                    src={collection.image}
+                    src={`https://api.timbu.cloud/images/${collection.photos[0].url}`}
                     alt={collection.name}
                     className={`rounded-2xl w-full`}
+                    width={100}
+                    height={100}
                   />
                   <div className={``}>
                     <p className={`font-[500] text-[20px] text-[#141414]`}>
                       {collection.name}
                     </p>
                     <p className={`"text-base text-[#141414]/[0.8]`}>
-                      {collection.category}
+                      {collection.categories[0].name}
                     </p>
                     <p className={`"text-base text-[#141414]/[0.8]`}>
-                      {collection.noOfColours > 1
-                        ? `${collection.noOfColours} Colours`
-                        : `${collection.noOfColours} Colour`}
+                      3 Colours
                     </p>
                     <p className={`font-[500] text-base text-[#141414]`}>
-                      ₦ {collection.price}
+                      ₦ {collection.current_price[0].NGN[0]}
                     </p>
                   </div>
                 </Link>
@@ -111,10 +89,12 @@ const NewCollections = () => {
           modules={[Navigation]}
           className="mySwiper swiper-container !hidden md:!inline-block swiper1 md:max-w-[630px] lg-md:max-w-[788px] lg:max-w-[788px] max-h-[420px] min-h-[420px] w-[100%]"
         >
-          {collections.map((collection, index) => (
+          {collections?.items.slice(0, 4).map((collection, index) => (
             <SwiperSlide
               className={`h-[400px] cursor-pointer min-h-[400px] ${
-                activeIndex === index ? "md:max-w-[247px] lg-md:max-w-80 lg:max-w-80 pb-5" : "md:max-w-[167px] lg-md:max-w-52 lg:max-w-52"
+                activeIndex === index
+                  ? "md:max-w-[247px] lg-md:max-w-80 lg:max-w-80 pb-5"
+                  : "md:max-w-[167px] lg-md:max-w-52 lg:max-w-52"
               }`}
               key={index}
               onMouseEnter={() => setActiveIndex(index)}
@@ -122,16 +102,22 @@ const NewCollections = () => {
             >
               <div
                 className={`transition-transform duration-500 ease-out cursor-pointer h-[400px] ${
-                  activeIndex === index ? "md:max-w-[247px] lg-md:max-w-80 lg:max-w-80 pb-5" : "md:max-w-[167px] lg-md:max-w-52 lg:max-w-52"
+                  activeIndex === index
+                    ? "md:max-w-[247px] lg-md:max-w-80 lg:max-w-80 pb-5"
+                    : "md:max-w-[167px] lg-md:max-w-52 lg:max-w-52"
                 }`}
               >
                 <Link href={`/products/${collection.id}`} key={index}>
                   <Image
-                    src={collection.image}
+                    src={`https://api.timbu.cloud/images/${collection.photos[2].url}`}
                     alt={collection.name}
                     className={`rounded-2xl w-full  ${
-                      activeIndex === index ? "" : "brightness-75 md:h-52 lg-md:h-60 lg:h-60"
+                      activeIndex === index
+                        ? "md:max-w-[200px] lg-md:max-w-80 md:h-[293px] lg-md:h-[325px] lg:h-[325px] lg:max-w-80"
+                        : "brightness-75 md:h-52 lg-md:h-60 lg:h-60 md:max-w-[150px] lg-md:max-w-52 lg:max-w-52"
                     }`}
+                    width={100}
+                    height={100}
                   />
                   <div
                     className={` ${activeIndex === index ? "" : "opacity-50"}`}
@@ -152,7 +138,7 @@ const NewCollections = () => {
                           : "text-[#141414]/[0.3]"
                       }`}
                     >
-                      {collection.category}
+                      {collection.categories[0].name}
                     </p>
                     <p
                       className={`text-sm ${
@@ -161,9 +147,7 @@ const NewCollections = () => {
                           : "text-[#141414]/[0.3]"
                       }`}
                     >
-                      {collection.noOfColours > 1
-                        ? `${collection.noOfColours} Colours`
-                        : `${collection.noOfColours} Colour`}
+                      3 Colours
                     </p>
                     <p
                       className={`font-[500] ${
@@ -172,7 +156,7 @@ const NewCollections = () => {
                           : "text-[15px] text-[#141414]/[0.5]"
                       }`}
                     >
-                      ₦ {collection.price}
+                      ₦ {collection.current_price[0].NGN[0]}
                     </p>
                   </div>
                 </Link>

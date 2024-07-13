@@ -1,9 +1,5 @@
 "use client";
 
-import Image4 from "@/assets/sneakers/image4.png";
-import Image2 from "@/assets/sneakers/image2.png";
-import Image3 from "@/assets/sneakers/image3.png";
-import Image5 from "@/assets/sneakers/image5.png";
 import Image from "next/image";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -14,67 +10,21 @@ import { Navigation, Pagination } from "swiper/modules";
 import ArrowBack from "@/assets/icons/arrowback.svg";
 import ArrowForward from "@/assets/icons/arrowforward.svg";
 import "@/styles/bestsellers.css";
+import { useEffect, useState } from "react";
 
 const BestSellers = () => {
-  const collections = [
-    {
-      id: "1",
-      image: Image2,
-      name: "Novaweave Phantom Pulse",
-      category: "Men's Shoes",
-      noOfColours: 3,
-      price: "100,540",
-    },
-    {
-      id: "2",
-      image: Image4,
-      name: "Zephyr Swiftstrike Pro",
-      category: "Men's Shoes",
-      noOfColours: 1,
-      price: "140,540",
-    },
-    {
-      id: "3",
-      image: Image3,
-      name: "Atlas Ascent GTX",
-      category: "Women's Shoes",
-      noOfColours: 4,
-      price: "260,000",
-    },
-    {
-      id: "4",
-      image: Image5,
-      name: "Surge Conduit Bioflex",
-      category: "Men's Shoes",
-      noOfColours: 1,
-      price: "40,540",
-    },
-    {
-      id: "3",
-      image: Image3,
-      name: "Atlas Ascent GTX",
-      category: "Women's Shoes",
-      noOfColours: 4,
-      price: "260,000",
-    },
-    {
-      id: "2",
-      image: Image4,
-      name: "Zephyr Swiftstrike Pro",
-      category: "Men's Shoes",
-      noOfColours: 1,
-      price: "140,540",
-    },
+  const [collections, setCollections] = useState<Collections | null>(null);
 
-    {
-      id: "1",
-      image: Image2,
-      name: "Novaweave Phantom",
-      category: "Men's Shoes",
-      noOfColours: 3,
-      price: "100,540",
-    },
-  ];
+  useEffect(() => {
+    fetch("/api/products")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setCollections(data);
+      });
+  }, []);
+
   return (
     <div className="pt-8 md:pt-16 px-4 md:px-8 mb-16">
       <div className="flex justify-between items-center">
@@ -99,7 +49,7 @@ const BestSellers = () => {
         modules={[Navigation, Pagination]}
         className="mySwiper md:!hidden max-w-[1240px]"
       >
-        {collections.map((collection, index) => (
+        {collections?.items.slice(0, 8).map((collection, index) => (
           <SwiperSlide key={index} className="max-w-[270px] pb-5">
             <div className="max-w-80">
               <Link
@@ -108,24 +58,22 @@ const BestSellers = () => {
                 className="max-w-80 cursor-pointer"
               >
                 <Image
-                  src={collection.image}
+                  src={`https://api.timbu.cloud/images/${collection.photos[0].url}`}
                   alt={collection.name}
                   className="rounded-lg hover:w-64 w-full"
+                  width={100}
+                  height={100}
                 />
                 <div className="">
                   <p className="text-[17px] text-[#141414] font-[500]">
                     {collection.name}
                   </p>
                   <p className="text-[14px] text-[#141414]/[0.8]">
-                    {collection.category}
+                    {collection.categories[0].name}
                   </p>
-                  <p className="text-[14px] text-[#141414]/[0.8]">
-                    {collection.noOfColours > 1
-                      ? `${collection.noOfColours} Colours`
-                      : `${collection.noOfColours} Colour`}
-                  </p>
+                  <p className="text-[14px] text-[#141414]/[0.8]">3 Colours</p>
                   <p className="font-[500] text-[15px] text-[#141414]">
-                    ₦ {collection.price}
+                    ₦ {collection.current_price[0].NGN[0]}
                   </p>
                 </div>
               </Link>
@@ -144,7 +92,7 @@ const BestSellers = () => {
         modules={[Navigation]}
         className="mySwiper !hidden md:!inline-block max-w-[1240px]"
       >
-        {collections.map((collection, index) => (
+        {collections?.items.map((collection, index) => (
           <SwiperSlide key={index} className="max-w-[270px]">
             <div className="max-w-80">
               <Link
@@ -153,24 +101,22 @@ const BestSellers = () => {
                 className="max-w-80 cursor-pointer"
               >
                 <Image
-                  src={collection.image}
+                  src={`https://api.timbu.cloud/images/${collection.photos[2].url}`}
                   alt={collection.name}
-                  className="rounded-2xl hover:w-64 w-full"
+                  className="rounded-2xl h-[276px] w-[276px] hover:w-64 hover:h-64"
+                  width={100}
+                  height={100}
                 />
                 <div className="">
                   <p className="text-[17px] text-[#141414] font-[500]">
                     {collection.name}
                   </p>
                   <p className="text-[14px] text-[#141414]/[0.8]">
-                    {collection.category}
+                    {collection.categories[0].name}
                   </p>
-                  <p className="text-[14px] text-[#141414]/[0.8]">
-                    {collection.noOfColours > 1
-                      ? `${collection.noOfColours} Colours`
-                      : `${collection.noOfColours} Colour`}
-                  </p>
+                  <p className="text-[14px] text-[#141414]/[0.8]">3 Colours</p>
                   <p className="font-[500] text-[15px] text-[#141414]">
-                    ₦ {collection.price}
+                    ₦ {collection.current_price[0].NGN[0]}
                   </p>
                 </div>
               </Link>

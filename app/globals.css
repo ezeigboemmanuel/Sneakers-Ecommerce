@@ -1,20 +1,4 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-h1 {
-  font-family: var(--font-archivo);
-}
-
-p {
-  font-family: "Satoshi", sans-serif;
-}
-
-input {
-  font-family: "Satoshi", sans-serif;
-}
-
-button {
-    font-family: "Satoshi", sans-serif;
-}
-
+  @tailwind components;
+  @tailwind utilities;
+  
