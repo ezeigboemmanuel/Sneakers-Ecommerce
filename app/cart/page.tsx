@@ -153,11 +153,13 @@ const page = () => {
           </div>
           <Image src={Line} alt="line" className="mb-10" />
 
-          <Link href="/checkout">
-            <div className="flex flex-1 space-x-2 justify-center items-center py-3 rounded-[100px] bg-[#141414] text-white cursor-pointer">
-              <p className="font-light text-sm">Proceed to Checkout</p>
-            </div>
-          </Link>
+          {cart.cart.length > 0 && (
+            <Link href="/checkout">
+              <div className="flex flex-1 space-x-2 justify-center items-center py-3 rounded-[100px] bg-[#141414] text-white cursor-pointer">
+                <p className="font-light text-sm">Proceed to Checkout</p>
+              </div>
+            </Link>
+          )}
         </div>
       </div>
 
