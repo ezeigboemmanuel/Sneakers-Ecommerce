@@ -69,6 +69,7 @@ const page = ({ params }: { params: { productId: string } }) => {
       }
       quantity.setQuantity(1)
       toast.success(`${quantity.quantity} ${collection?.name} added to bag.`);
+      router.push("/cart")
     } catch (error) {
       console.log("Adding to cart error", error);
     }
