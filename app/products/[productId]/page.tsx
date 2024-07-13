@@ -14,6 +14,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCartStore } from "@/hooks/useCart";
 import { Skeleton } from "@/components/ui/skeleton";
+import toast from "react-hot-toast";
 
 const page = ({ params }: { params: { productId: string } }) => {
   const router = useRouter();
@@ -61,6 +62,7 @@ const page = ({ params }: { params: { productId: string } }) => {
       if (collection !== null) {
         addToCart(collection);
       }
+      toast.success(`${quantity.quantity} ${collection?.name} added to bag.`)
     } catch (error) {
       console.log("Adding to cart error", error);
     }

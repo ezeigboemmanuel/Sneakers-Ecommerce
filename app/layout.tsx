@@ -7,8 +7,9 @@ import Footer from "@/components/Footer";
 import NavProvider from "@/components/NavProvider";
 import Link from "next/link";
 import Image from "next/image";
-import Line from "@/assets/icons/whiteline.svg"
-import LongLine from "@/assets/icons/whitelongline.svg"
+import Line from "@/assets/icons/whiteline.svg";
+import LongLine from "@/assets/icons/whitelongline.svg";
+import { ToasterProvider } from "@/components/ToastProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -39,6 +40,7 @@ export default function RootLayout({
 
       <body className={`${inter.className}`}>
         <div className="max-w-[1440px] mx-auto">
+          <ToasterProvider />
           <NavProvider />
           <Navbar />
         </div>
@@ -47,15 +49,27 @@ export default function RootLayout({
           <Footer />
           <div className="bg-[#1A1A1A] text-white px-4 md:px-8 pb-5 flex justify-center items-center flex-col">
             <Image src={Line} alt="line" className="pt-5 pb-5 md:hidden" />
-            <Image src={LongLine} alt="line" className="pt-5 pb-5 hidden md:inline-block" />
+            <Image
+              src={LongLine}
+              alt="line"
+              className="pt-5 pb-5 hidden md:inline-block"
+            />
 
             <p className="font-light text-sm text-center">
-              © Designed by: {" "}
-              <Link href="https://www.behance.net/lajimoh" target="_blank" className="hover:underline">
-                Lawal Jimoh (King LA) {" "}
+              © Designed by:{" "}
+              <Link
+                href="https://www.behance.net/lajimoh"
+                target="_blank"
+                className="hover:underline"
+              >
+                Lawal Jimoh (King LA){" "}
               </Link>
-              • Developed by: {" "}
-              <Link href="https://zgboportfolio.vercel.app" target="_blank" className="hover:underline">
+              • Developed by:{" "}
+              <Link
+                href="https://zgboportfolio.vercel.app"
+                target="_blank"
+                className="hover:underline"
+              >
                 Emmanuel Ezeigbo (zgbocode)
               </Link>
             </p>

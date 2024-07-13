@@ -25,7 +25,7 @@ const page = () => {
     <div className="relative px-4 md:px-8 mb-16">
       <div className="py-4 md:py-8 lg-md:px-0 lg:px-8 max-w-[1150px]"></div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-7 max-w-[1150px] mx-auto">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-3 md:gap-x-5 gap-y-5 md:gap-y-7 max-w-[1150px] mx-auto">
         {filteredCollections?.map((collection, index) => (
           <div
             key={index}
@@ -35,7 +35,7 @@ const page = () => {
               <Image
                 src={`https://api.timbu.cloud/images/${collection.photos[2].url}`}
                 alt={collection.name}
-                className="rounded-lg md:rounded-2xl h-[380px] w-full"
+                className="rounded-lg md:rounded-2xl h-[200px] md:h-[380px] w-full"
                 width={100}
                 height={100}
               />
