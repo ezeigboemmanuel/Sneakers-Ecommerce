@@ -74,6 +74,7 @@ const page = () => {
                             </option>
                           ))}
                         </select> */}
+                        <p className="font-light text-xs md:text-sm">{cart.size}</p>
                       </div>
 
                       <div className="flex space-x-4 md:space-x-1 items-center">
@@ -87,6 +88,7 @@ const page = () => {
                             </option>
                           ))}
                         </select> */}
+                        <p className="font-light text-xs md:text-sm">{cart.quantity}</p>
                       </div>
 
                       <div

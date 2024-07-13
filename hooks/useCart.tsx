@@ -2,6 +2,8 @@ import { create } from "zustand";
 
 type CartStateProps = {
   quantity: number;
+  size: string;
+  setSize: (size: string) => void;
   addQuantity: () => void;
   minusQuantity: () => void;
   cart: Collection[];
@@ -12,6 +14,11 @@ type CartStateProps = {
 
 export const useCartStore = create<CartStateProps>((set) => ({
   quantity: 1,
+  size: "40",
+  setSize: (size) =>
+    set((state) => {
+      return { size: size };
+    }),
   addQuantity: () =>
     set((state) => {
       return { quantity: state.quantity + 1 };

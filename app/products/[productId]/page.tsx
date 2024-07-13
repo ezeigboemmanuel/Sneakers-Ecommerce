@@ -1,7 +1,8 @@
 "use client";
 
 import Recommendations from "@/components/Recommendations";
-import PreImg1 from "@/assets/sneakers/preimg1.png";
+import Stars1 from "@/assets/icons/stars1.svg";
+import Stars2 from "@/assets/icons/stars2.svg";
 import Minus from "@/assets/icons/minus.svg";
 import Add from "@/assets/icons/add.svg";
 import Bag from "@/assets/icons/bagfilled.svg";
@@ -22,8 +23,10 @@ const page = ({ params }: { params: { productId: string } }) => {
   const [loading, setLoading] = useState(true);
 
   const [activeImage, setActiveImage] = useState<string>("");
+  const [activeSize, setActiveSize] = useState("40");
 
   const addToCart = useCartStore((state) => state.addToCart);
+  const setSize = useCartStore((state) => state.setSize)
   const quantity = useCartStore();
 
   useEffect(() => {
@@ -35,7 +38,9 @@ const page = ({ params }: { params: { productId: string } }) => {
         if (data) {
           setCollection(data);
           if (data.photos && data.photos[1]?.url) {
-            setActiveImage(`https://api.timbu.cloud/images/${data.photos[1].url}`);
+            setActiveImage(
+              `https://api.timbu.cloud/images/${data.photos[1].url}`
+            );
           }
         } else {
           setCollection(null);
@@ -62,11 +67,46 @@ const page = ({ params }: { params: { productId: string } }) => {
       if (collection !== null) {
         addToCart(collection);
       }
-      toast.success(`${quantity.quantity} ${collection?.name} added to bag.`)
+      toast.success(`${quantity.quantity} ${collection?.name} added to bag.`);
     } catch (error) {
       console.log("Adding to cart error", error);
     }
   };
+
+  const sizes = [
+    "36",
+    "37",
+    "38",
+    "39",
+    "40",
+    "41",
+    "42",
+    "43",
+    "44",
+    "45",
+    "46",
+  ];
+
+  const handleSize = (size: string) => {
+    setActiveSize(size);
+    setSize(size);
+  };
+  const reviews = [
+    {
+      stars: Stars1,
+      name: "Taiwo",
+      date: "8 July, 2024",
+      review:
+        "These shoes are incredible! So light and breathable, it feels like I'm walking on air",
+    },
+    {
+      stars: Stars2,
+      name: "Sarah B",
+      date: "8 July, 2024",
+      review:
+        "Not sure what the 'Phantom Pulse' does exactly, but these sneakers are amazing for running",
+    },
+  ];
 
   return (
     <div className="px-4 md:px-6 lg-md:px-16 lg:px-16">
@@ -139,14 +179,19 @@ const page = ({ params }: { params: { productId: string } }) => {
             <div className="flex mb-3 space-x-12">
               <p className="font-light mr-2">Size: </p>
               <div className="flex flex-wrap items-center justify-start">
-                {/* {collection?.sizes.map((size, index) => (
-                    <p
-                      key={index}
-                      className="font-light text-sm border border-[#C0C0C0] flex justify-center items-center w-7 h-7 rounded-[4px] cursor-pointer hover:bg-black hover:text-white transition-colors duration-500 ease-in-out mr-2 mb-1"
-                    >
-                      {size}
-                    </p>
-                  ))} */}
+                {sizes.map((size, index) => (
+                  <p
+                    key={index}
+                    onClick={() => handleSize(size)}
+                    className={
+                      activeSize === size
+                        ? "bg-black text-white font-light text-sm border border-[#C0C0C0] hover:border-black flex justify-center items-center w-7 h-7 rounded-[4px] cursor-pointer  transition-colors duration-500 ease-in-out mr-2 mb-1"
+                        : "font-light text-sm border border-[#C0C0C0] hover:border-black flex justify-center items-center w-7 h-7 rounded-[4px] cursor-pointer  transition-colors duration-500 ease-in-out mr-2 mb-1"
+                    }
+                  >
+                    {size}
+                  </p>
+                ))}
               </div>
             </div>
 
@@ -214,7 +259,13 @@ const page = ({ params }: { params: { productId: string } }) => {
               </div>
               {open === "shipping" && (
                 <div className="mb-4">
-                  {/* <p className="font-normal">{collection?.shipping}</p> */}
+                  <p className="font-normal">
+                    We strive to deliver your order promptly and efficiently.
+                    All orders are processed within 1-2 business days. Standard
+                    shipping typically takes 5-7 business days. Expedited and
+                    express shipping options are available at checkout for an
+                    additional fee.
+                  </p>
                 </div>
               )}
             </div>
@@ -231,19 +282,19 @@ const page = ({ params }: { params: { productId: string } }) => {
               </div>
               {open === "reviews" && (
                 <div className="mb-4">
-                  {/* {collection?.reviews.map((review, index) => (
-                      <div key={index}>
-                        <div className="flex space-x-3 items-center mb-1">
-                          <Image src={review.stars} alt="stars" />
-                          <p className="text-[#141414]/[0.8] text-sm">
-                            {review.name} - {review.date}
-                          </p>
-                        </div>
-                        <p className="mb-2 text-[#141414] text-sm">
-                          {review.review}
+                  {reviews.map((review, index) => (
+                    <div key={index}>
+                      <div className="flex space-x-3 items-center mb-1">
+                        <Image src={review.stars} alt="stars" />
+                        <p className="text-[#141414]/[0.8] text-sm">
+                          {review.name} - {review.date}
                         </p>
                       </div>
-                    ))} */}
+                      <p className="mb-2 text-[#141414] text-sm">
+                        {review.review}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               )}
             </div>
