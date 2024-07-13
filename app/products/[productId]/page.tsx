@@ -13,10 +13,12 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCartStore } from "@/hooks/useCart";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const page = ({ params }: { params: { productId: string } }) => {
   const router = useRouter();
   const [collection, setCollection] = useState<Collection | null>(null);
+  const [loading, setLoading] = useState(true);
 
   const [activeImage, setActiveImage] = useState<string>("");
 
@@ -29,14 +31,28 @@ const page = ({ params }: { params: { productId: string } }) => {
         return res.json();
       })
       .then((data) => {
-        setCollection(data);
-        setActiveImage(`https://api.timbu.cloud/images/${data?.photos[1].url}`);
+        if (data) {
+          setCollection(data);
+          if (data.photos && data.photos[1]?.url) {
+            setActiveImage(`https://api.timbu.cloud/images/${data.photos[1].url}`);
+          }
+        } else {
+          setCollection(null);
+        }
+        setLoading(false); // Update loading state
+      })
+      .catch((error) => {
+        console.error("Error fetching product:", error);
+        setCollection(null);
+        setLoading(false); // Update loading state
       });
-  }, []);
+  }, [params.productId]);
 
-  // if (!collection) {
-  //   router.push("/products");
-  // }
+  useEffect(() => {
+    if (!loading && collection === null) {
+      router.push("/products");
+    }
+  }, [collection, loading, router]);
 
   const [open, setOpen] = useState("description");
 
@@ -79,13 +95,17 @@ const page = ({ params }: { params: { productId: string } }) => {
             ))}
           </div>
           <div className="">
-            <Image
-              src={activeImage}
-              alt="img"
-              className="w-full max-w-[400px] md:max-w-full mx-auto h-[430px] md:h-[420px] lg:h-[540px] md:w-[400px] lg-md:h-[459px] lg-md:w-[350px] rounded-xl"
-              width={100}
-              height={100}
-            />
+            {collection ? (
+              <Image
+                src={activeImage}
+                alt="img"
+                className="w-full max-w-[400px] md:max-w-full mx-auto h-[430px] md:h-[420px] lg:h-[540px] md:w-[400px] lg-md:h-[459px] lg-md:w-[350px] rounded-xl"
+                width={100}
+                height={100}
+              />
+            ) : (
+              <Skeleton className="w-full h-[400px] rounded-lg" />
+            )}
           </div>
         </div>
 

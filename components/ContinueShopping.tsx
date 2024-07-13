@@ -25,7 +25,7 @@ const ContinueShopping = () => {
       });
   }, []);
   return (
-    <div className="pt-8 md:pt-16 px-4 md:px-8 mb-16">
+    <div className="pt-8 md:pt-16 mb-16">
     <div className="flex justify-between items-center">
       <h1 className="text-[#2E2E2E] uppercase w-full text-center md:text-left text-[24px] md:text-[30px] font-[500] mb-4 md:mb-8">
         continue shopping
