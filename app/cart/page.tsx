@@ -15,7 +15,6 @@ const page = () => {
   const subtotal = numArr.reduce((acc, curr) => acc + curr, 0);
   const total = subtotal + 60000;
 
-  console.log(cart)
   return (
     <div className="px-4 py-2 lg:px-16 md:py-8">
       <div className="flex flex-col md:flex-row">
@@ -76,7 +75,9 @@ const page = () => {
                             </option>
                           ))}
                         </select> */}
-                        <p className="font-light text-xs md:text-sm">{cart.size}</p>
+                        <p className="font-light text-xs md:text-sm">
+                          {cart.size}
+                        </p>
                       </div>
 
                       <div className="flex space-x-4 md:space-x-1 items-center">
@@ -90,8 +91,17 @@ const page = () => {
                             </option>
                           ))}
                         </select> */}
-                        <p className="font-light text-xs md:text-sm">{item.quantity}</p>
+                        <p className="font-light text-xs md:text-sm">
+                          {item.quantity}
+                        </p>
                       </div>
+
+                      <Image
+                        src={DeleteIcon}
+                        alt="delete"
+                        onClick={() => cart.removeFromCart(item.id)}
+                        className="h-3 w-3 md:h-5 md:w-5 cursor-pointer hidden md:inline-block"
+                      />
 
                       <div
                         className="cursor-pointer"
@@ -100,21 +110,10 @@ const page = () => {
                         <Image
                           src={DeleteIcon}
                           alt="delete"
-                          className="h-3 w-3 md:h-5 md:w-5 cursor-pointer hidden md:inline-block"
+                          className="h-3 w-3 md:h-5 md:w-5 cursor-pointer md:hidden"
                         />
                       </div>
                     </div>
-                  </div>
-
-                  <div
-                    className="cursor-pointer"
-                    onClick={() => cart.removeFromCart(item.id)}
-                  >
-                    <Image
-                      src={DeleteIcon}
-                      alt="delete"
-                      className="h-3 w-3 md:h-5 md:w-5 cursor-pointer md:hidden"
-                    />
                   </div>
 
                   <div className="lg:mr-8 hidden md:flex flex-col w-full justify-between h-[120px]">
