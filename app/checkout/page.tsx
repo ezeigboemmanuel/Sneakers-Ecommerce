@@ -17,7 +17,7 @@ const page = () => {
   return (
     <div className="px-4 py-2 lg:px-16 md:py-8">
       <div className="flex flex-col md:flex-row items-start">
-        <div className="md:w-[65%] md:mr-5">
+        <div className="w-[100%] md:w-[65%] md:mr-5">
           <h1 className="text-2xl md:text-3xl font-[500] uppercase mb-4 md:mb-8">
             Check out
           </h1>
