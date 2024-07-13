@@ -33,9 +33,9 @@ const page = () => {
           >
             <Link href={`/products/${collection.id}`} key={index}>
               <Image
-                src={`https://api.timbu.cloud/images/${collection.photos[2].url}`}
+                src={`https://api.timbu.cloud/images/${collection.photos[0].url}`}
                 alt={collection.name}
-                className="rounded-lg md:rounded-2xl h-[200px] md:h-[380px] w-full"
+                className="rounded-lg md:rounded-2xl h-[200px] md:h-[380px] w-full hover:rotate-2"
                 width={100}
                 height={100}
               />

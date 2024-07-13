@@ -49,7 +49,7 @@ const BestSellers = () => {
         modules={[Navigation, Pagination]}
         className="mySwiper md:!hidden max-w-[1240px]"
       >
-        {collections?.items.slice(0, 8).map((collection, index) => (
+        {collections?.items.slice(0, 6).map((collection, index) => (
           <SwiperSlide key={index} className="max-w-[270px] pb-5">
             <div className="max-w-80">
               <Link
@@ -92,7 +92,7 @@ const BestSellers = () => {
         modules={[Navigation]}
         className="mySwiper !hidden md:!inline-block max-w-[1240px]"
       >
-        {collections?.items.map((collection, index) => (
+        {collections?.items.slice(0, 6).map((collection, index) => (
           <SwiperSlide key={index} className="max-w-[270px]">
             <div className="max-w-80">
               <Link
@@ -101,7 +101,7 @@ const BestSellers = () => {
                 className="max-w-80 cursor-pointer"
               >
                 <Image
-                  src={`https://api.timbu.cloud/images/${collection.photos[2].url}`}
+                  src={`https://api.timbu.cloud/images/${collection.photos[0].url}`}
                   alt={collection.name}
                   className="rounded-2xl h-[276px] w-[276px] hover:w-64 hover:h-64"
                   width={100}

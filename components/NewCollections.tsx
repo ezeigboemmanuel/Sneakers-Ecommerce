@@ -109,7 +109,7 @@ const NewCollections = () => {
               >
                 <Link href={`/products/${collection.id}`} key={index}>
                   <Image
-                    src={`https://api.timbu.cloud/images/${collection.photos[2].url}`}
+                    src={`https://api.timbu.cloud/images/${collection.photos[0].url}`}
                     alt={collection.name}
                     className={`rounded-2xl w-full  ${
                       activeIndex === index
