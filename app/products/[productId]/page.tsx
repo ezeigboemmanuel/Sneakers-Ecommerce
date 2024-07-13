@@ -67,6 +67,7 @@ const page = ({ params }: { params: { productId: string } }) => {
       if (collection !== null) {
         addToCart(collection);
       }
+      quantity.setQuantity(1)
       toast.success(`${quantity.quantity} ${collection?.name} added to bag.`);
     } catch (error) {
       console.log("Adding to cart error", error);

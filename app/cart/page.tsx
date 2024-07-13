@@ -14,6 +14,8 @@ const page = () => {
   const numArr = cart.cart.map((item) => item.current_price * item.quantity);
   const subtotal = numArr.reduce((acc, curr) => acc + curr, 0);
   const total = subtotal + 60000;
+
+  console.log(cart)
   return (
     <div className="px-4 py-2 lg:px-16 md:py-8">
       <div className="flex flex-col md:flex-row">
@@ -88,7 +90,7 @@ const page = () => {
                             </option>
                           ))}
                         </select> */}
-                        <p className="font-light text-xs md:text-sm">{cart.quantity}</p>
+                        <p className="font-light text-xs md:text-sm">{item.quantity}</p>
                       </div>
 
                       <div

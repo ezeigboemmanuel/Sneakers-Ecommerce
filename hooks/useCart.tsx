@@ -4,6 +4,7 @@ type CartStateProps = {
   quantity: number;
   size: string;
   setSize: (size: string) => void;
+  setQuantity: (quantity: number) => void;
   addQuantity: () => void;
   minusQuantity: () => void;
   cart: Collection[];
@@ -18,6 +19,10 @@ export const useCartStore = create<CartStateProps>((set) => ({
   setSize: (size) =>
     set((state) => {
       return { size: size };
+    }),
+  setQuantity: (quantity) =>
+    set((state) => {
+      return { quantity: quantity };
     }),
   addQuantity: () =>
     set((state) => {
@@ -41,7 +46,7 @@ export const useCartStore = create<CartStateProps>((set) => ({
         return {
           cart: state.cart.map((cartItem) =>
             cartItem.id === item.id
-              ? { ...cartItem, quantity: cartItem.quantity + 1 }
+              ? { ...cartItem, quantity: cartItem.quantity + state.quantity }
               : cartItem
           ),
         };
