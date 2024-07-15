@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 export async function GET(req: Request) {
   try {
     const response = await axios.get(
-      "https://api.timbu.cloud/products?organization_id=330723b0f89f442ab5fe4dd78c83ebf8&reverse_sort=false&page=1&size=30&Appid=QXMISZB5CYBHXSA&Apikey=f856062ed8004cb481c29de69a88f59b20240712141043442125"
+      `https://api.timbu.cloud/products?organization_id=${process.env.NEXT_PUBLIC_ORGANIZATION_ID}&reverse_sort=false&page=1&size=30&Appid=${process.env.NEXT_PUBLIC_APP_ID}&Apikey=${process.env.NEXT_PUBLIC_API_KEY}`
     );
 
     return NextResponse.json(response.data);
