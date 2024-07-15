@@ -143,13 +143,13 @@ const page = () => {
         <Pagination>
           <PaginationContent>
             <PaginationItem>
-              <PaginationPrevious onClick={handlePrevPage} />
+              <PaginationPrevious onClick={handlePrevPage} className="cursor-pointer" />
             </PaginationItem>
 
             {renderPages()}
 
             <PaginationItem>
-              <PaginationNext onClick={handleNextPage} />
+              <PaginationNext onClick={handleNextPage} className="cursor-pointer" />
             </PaginationItem>
           </PaginationContent>
         </Pagination>
