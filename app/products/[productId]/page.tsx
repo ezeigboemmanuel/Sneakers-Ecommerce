@@ -16,49 +16,22 @@ import { useRouter } from "next/navigation";
 import { useCartStore } from "@/hooks/useCart";
 import { Skeleton } from "@/components/ui/skeleton";
 import toast from "react-hot-toast";
+import { products } from "@/lib/data";
 
 const page = ({ params }: { params: { productId: string } }) => {
   const router = useRouter();
-  const [collection, setCollection] = useState<Collection | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [collection, setCollection] = useState(
+    products.filter((product) => product.id === params.productId)
+  );
 
-  const [activeImage, setActiveImage] = useState<string>("");
+  const [activeImage, setActiveImage] = useState<StaticImageData>(
+    collection[0].images.map((image) => image.imageUrl)[0]
+  );
   const [activeSize, setActiveSize] = useState("40");
 
   const addToCart = useCartStore((state) => state.addToCart);
-  const setSize = useCartStore((state) => state.setSize)
+  const setSize = useCartStore((state) => state.setSize);
   const quantity = useCartStore();
-
-  useEffect(() => {
-    fetch(`/api/products/${params.productId}`)
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        if (data) {
-          setCollection(data);
-          if (data.photos && data.photos[1]?.url) {
-            setActiveImage(
-              `https://api.timbu.cloud/images/${data.photos[1].url}`
-            );
-          }
-        } else {
-          setCollection(null);
-        }
-        setLoading(false); // Update loading state
-      })
-      .catch((error) => {
-        console.error("Error fetching product:", error);
-        setCollection(null);
-        setLoading(false); // Update loading state
-      });
-  }, [params.productId]);
-
-  useEffect(() => {
-    if (!loading && collection === null) {
-      router.push("/products");
-    }
-  }, [collection, loading, router]);
 
   const [open, setOpen] = useState("description");
 
@@ -67,9 +40,9 @@ const page = ({ params }: { params: { productId: string } }) => {
       if (collection !== null) {
         addToCart(collection);
       }
-      quantity.setQuantity(1)
-      toast.success(`${quantity.quantity} ${collection?.name} added to bag.`);
-      router.push("/cart")
+      quantity.setQuantity(1);
+      toast.success(`${quantity.quantity} ${collection[0].name} added to bag.`);
+      router.push("/cart");
     } catch (error) {
       console.log("Adding to cart error", error);
     }
@@ -114,26 +87,22 @@ const page = ({ params }: { params: { productId: string } }) => {
     <div className="px-4 md:px-6 lg-md:px-16 lg:px-16">
       <div className="py-2 md:py-8">
         <p className="text-sm font-light hidden md:inline-block">
-          Collections / {collection?.categories[0].name}
+          Collections / {collection[0].category}
         </p>
       </div>
 
       <div className="flex flex-col md:flex-row mx-auto">
         <div className="flex flex-col-reverse md:flex-row md:space-x-6 md:w-1/2 md:mr-4">
           <div className="w-full md:w-[40px] justify-around md:justify-normal md:min-w-[40px] lg-md:min-w-[50px] lg:min-w-[60px] flex items-center space-x-1 md:space-x-0 md:space-y-2 md:flex-col mt-3 mb-2 md:mb-0 md:mt-0">
-            {collection?.photos.slice(0, 6).map((photo, index) => (
+            {collection[0].images.slice(0, 6).map((photo, index) => (
               <div key={index} className="">
                 <Image
-                  src={`https://api.timbu.cloud/images/${photo.url}`}
+                  src={photo.imageUrl}
                   alt="img"
                   className="cursor-pointer h-14 md:h- md:w-[45px] md:hover:w-[50px] lg:w-[55px] lg-md:w-[45px] lg-md:hover:w-[50px] lg:hover:w-[60px] lg:h-[83px] rounded-md"
-                  onClick={() =>
-                    setActiveImage(
-                      `https://api.timbu.cloud/images/${photo.url}`
-                    )
-                  }
-                  width={100}
-                  height={100}
+                  onClick={() => setActiveImage(photo.imageUrl)}
+                  width={5000}
+                  height={5000}
                 />
               </div>
             ))}
@@ -141,11 +110,11 @@ const page = ({ params }: { params: { productId: string } }) => {
           <div className="">
             {collection ? (
               <Image
-                src={activeImage}
+                src={activeImage || ""}
                 alt="img"
                 className="w-full max-w-[400px] md:max-w-full mx-auto h-[430px] md:h-[420px] lg:h-[540px] md:w-[400px] lg-md:h-[459px] lg-md:w-[350px] rounded-xl"
-                width={100}
-                height={100}
+                width={5000}
+                height={5000}
               />
             ) : (
               <Skeleton className="w-full h-[400px] rounded-lg" />
@@ -155,23 +124,21 @@ const page = ({ params }: { params: { productId: string } }) => {
 
         <div className="md:w-1/2">
           <div>
-            <h1 className="font-[500] text-3xl mb-1">{collection?.name}</h1>
-            <p className="font-light text-sm mb-3">
-              {collection?.categories[0].name}
-            </p>
-            <p className="font-[500] mb-3">₦ {collection?.current_price}</p>
+            <h1 className="font-[500] text-3xl mb-1">{collection[0].name}</h1>
+            <p className="font-light text-sm mb-3">{collection[0].category}</p>
+            <p className="font-[500] mb-3">₦ {collection[0].price}</p>
 
             <div className="flex mb-3 items-center space-x-6">
               <p className="font-light mr-2">Colours: </p>
               <div className="flex space-x-1">
-                {collection?.photos.slice(0, 3).map((photo, index) => (
+                {collection[0].images.slice(0, 3).map((photo, index) => (
                   <div key={index}>
                     <Image
-                      src={`https://api.timbu.cloud/images/${photo.url}`}
+                      src={photo.imageUrl}
                       alt="colour"
                       className="w-6 h-6"
-                      width={100}
-                      height={100}
+                      width={5000}
+                      height={5000}
                     />
                   </div>
                 ))}
@@ -229,8 +196,8 @@ const page = ({ params }: { params: { productId: string } }) => {
                 src={Love}
                 alt="love"
                 className="h-5 w-5 cursor-pointer"
-                width={100}
-                height={100}
+                width={5000}
+                height={5000}
               />
             </div>
 
@@ -244,7 +211,7 @@ const page = ({ params }: { params: { productId: string } }) => {
               </div>
               {open === "description" && (
                 <div className="mb-4">
-                  <p className="font-normal">{collection?.description}</p>
+                  <p className="font-normal">{collection[0].description}</p>
                 </div>
               )}
             </div>

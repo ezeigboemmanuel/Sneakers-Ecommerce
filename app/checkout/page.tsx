@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Up from "@/assets/icons/filterup.svg";
 import Line from "@/assets/icons/line.svg";
@@ -8,11 +8,17 @@ import { useCartStore } from "@/hooks/useCart";
 
 const page = () => {
   const cart = useCartStore();
-  const numArr = cart.cart.map((item) => item.current_price * item.quantity);
-  const subtotal = numArr.reduce((acc, curr) => acc + curr, 0);
+  const numArr = cart.cart.map((item) => item[0].price * (item[0].quantity ?? 0));
+  const subtotal = cart.cart.reduce(
+    (acc, item) => acc + item[0].price * (item[0].quantity || 1),
+    0
+  );
   const total = subtotal + 60000;
+  0;
 
-  const totalQuantity = cart.cart.map((item) => item.quantity).reduce((acc, curr) => acc + curr, 0);
+  const totalQuantity = cart.cart
+    .map((item) => item[0].quantity ?? 0) // Use 0 as a fallback for undefined quantity
+    .reduce((acc, curr) => acc + curr, 0); // The accumulator now starts at 0, ensuring it's always defined
 
   return (
     <div className="px-4 py-2 lg:px-16 md:py-8">
@@ -144,13 +150,17 @@ const page = () => {
           </div>
           <div className="flex justify-between items-center cursor-pointer mt-3 mb-3">
             <p className="text-[15px]">Estimated Delivery</p>
-            <p className="font-[500] text-[15px]">₦ {subtotal === 0 ? 0 : "60000"}</p>
+            <p className="font-[500] text-[15px]">
+              ₦ {subtotal === 0 ? 0 : "60000"}
+            </p>
           </div>
           <Image src={Line} alt="line" />
           <div>
             <div className="flex justify-between items-center cursor-pointer mt-3 mb-3">
               <p className="font-[500] text-[15px]">Total</p>
-              <p className="font-[500] text-[15px]">₦ {subtotal === 0 ? 0 : total}</p>
+              <p className="font-[500] text-[15px]">
+                ₦ {subtotal === 0 ? 0 : total}
+              </p>
             </div>
           </div>
           <Image src={Line} alt="line" className="mb-10" />
@@ -165,26 +175,32 @@ const page = () => {
               <div key={index}>
                 <div className="flex space-x-4">
                   <Image
-                    src={`https://api.timbu.cloud/images/${item.photos[2].url}`}
+                    src={item[0].images[0].imageUrl}
                     alt="image"
                     className="h-[80px] w-[90px] rounded-lg"
-                    width={100}
-                    height={100}
+                    width={5000}
+                    height={5000}
                   />
                   <div className="flex justify-between w-full">
                     <div>
                       <h1 className="font-[500] text-sm text-[#141414] mb-1">
-                        {item.name}
+                        {item[0].name}
                       </h1>
-                      <p className="font-light text-xs mb-1">₦ {item.current_price}</p>
+                      <p className="font-light text-xs mb-1">
+                        ₦ {item[0].price}
+                      </p>
 
                       <div className="flex items-center space-x-10">
                         <div className="flex space-x-2 items-center">
-                          <p className="font-light text-xs">Size: {cart.size}</p>
+                          <p className="font-light text-xs">
+                            Size: {cart.size}
+                          </p>
                         </div>
 
                         <div className="flex space-x-2 items-center">
-                          <p className="font-light text-xs">Quantity: {item.quantity}</p>
+                          <p className="font-light text-xs">
+                            Quantity: {item[0].quantity}
+                          </p>
                         </div>
                       </div>
                     </div>

@@ -1,3 +1,4 @@
+import { Product } from "@/lib/data";
 import { create } from "zustand";
 
 type CartStateProps = {
@@ -7,8 +8,8 @@ type CartStateProps = {
   setQuantity: (quantity: number) => void;
   addQuantity: () => void;
   minusQuantity: () => void;
-  cart: Collection[];
-  addToCart: (item: Collection) => void;
+  cart: Product[][];
+  addToCart: (collection: Product[]) => void;
   removeFromCart: (id: string) => void;
   clearCart: () => void;
 };
@@ -37,16 +38,16 @@ export const useCartStore = create<CartStateProps>((set) => ({
       }
     }),
   cart: [],
-  addToCart: (item) =>
+  addToCart: (item: Product[]) =>
     set((state) => {
       const existingItem = state.cart.find(
-        (cartItem) => cartItem.id === item.id
+        (cartItem) => cartItem[0].id === item[0].id
       );
       if (existingItem) {
         return {
           cart: state.cart.map((cartItem) =>
-            cartItem.id === item.id
-              ? { ...cartItem, quantity: cartItem.quantity + state.quantity }
+            cartItem[0].id === item[0].id
+              ? { ...cartItem, quantity: cartItem[0].quantity ?? 0 + state.quantity }
               : cartItem
           ),
         };
@@ -56,7 +57,7 @@ export const useCartStore = create<CartStateProps>((set) => ({
     }),
   removeFromCart: (id) =>
     set((state) => ({
-      cart: state.cart.filter((item) => item.id !== id),
+      cart: state.cart.filter((item) => item[0].id !== id),
     })),
   clearCart: () => set({ cart: [] }),
 }));

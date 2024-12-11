@@ -12,22 +12,13 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { products } from "@/lib/data";
 
 const page = () => {
-  const [collections, setCollections] = useState<Collections | null>(null);
+  const [collections, setCollections] = useState(products);
 
-  useEffect(() => {
-    fetch("/api/products")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setCollections(data);
-      });
-  }, []);
-
-  const filteredCollections = collections?.items?.filter(
-    (collection) => collection.categories[0].name == "men's shoes"
+  const filteredCollections = collections?.filter(
+    (collection) => collection.category.toLowerCase() == "men's shoes"
   );
 
   // For Pagination
@@ -36,7 +27,10 @@ const page = () => {
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const lastItemIndex = currentPage * itemsPerPage;
   const firstItemIndex = lastItemIndex - itemsPerPage;
-  const currentItems = filteredCollections?.slice(firstItemIndex, lastItemIndex);
+  const currentItems = filteredCollections?.slice(
+    firstItemIndex,
+    lastItemIndex
+  );
 
   const pages = [];
   for (let i = 1; i <= Math.ceil(12 / itemsPerPage); i++) {
@@ -113,22 +107,22 @@ const page = () => {
           >
             <Link href={`/products/${collection.id}`} key={index}>
               <Image
-                src={`https://api.timbu.cloud/images/${collection.photos[0].url}`}
+                src={collection.images[0].imageUrl}
                 alt={collection.name}
                 className="rounded-lg md:rounded-2xl h-[200px] md:h-[380px] w-full hover:rotate-2"
-                width={100}
-                height={100}
+                width={5000}
+                height={5000}
               />
               <div className="">
                 <p className="text-[17px] text-[#141414] font-[500]">
                   {collection.name}
                 </p>
                 <p className="text-[14px] text-[#141414]/[0.8]">
-                  {collection.categories[0].name}
+                  {collection.category}
                 </p>
                 <p className="text-[14px] text-[#141414]/[0.8]">3 Colours</p>
                 <p className="font-[500] text-[15px] text-[#141414]">
-                  ₦ {collection.current_price[0].NGN[0]}
+                  ₦ {collection.price}
                 </p>
               </div>
             </Link>
@@ -140,13 +134,19 @@ const page = () => {
         <Pagination>
           <PaginationContent>
             <PaginationItem>
-              <PaginationPrevious onClick={handlePrevPage} className="cursor-pointer" />
+              <PaginationPrevious
+                onClick={handlePrevPage}
+                className="cursor-pointer"
+              />
             </PaginationItem>
 
             {renderPages()}
 
             <PaginationItem>
-              <PaginationNext onClick={handleNextPage} className="cursor-pointer" />
+              <PaginationNext
+                onClick={handleNextPage}
+                className="cursor-pointer"
+              />
             </PaginationItem>
           </PaginationContent>
         </Pagination>

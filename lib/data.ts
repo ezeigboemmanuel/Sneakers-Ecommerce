@@ -44,13 +44,14 @@ export type Product = {
   id: string;
   name: string;
   description: string;
-  price: string;
+  price: number;
   category: string;
   colours: StaticImageData[];
   sizes: string[];
   shipping: string;
   reviews: Review[];
   images: Images[];
+  quantity?: number;
 };
 
 export const products: Product[] = [
@@ -59,7 +60,7 @@ export const products: Product[] = [
     name: "Novaweave Phantom Pulse",
     category: "Men's Shoes",
     colours: [Image2, Image3, Image5],
-    price: "100,540",
+    price: 100540,
     sizes: ["36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46"],
     description: `We're passionate about getting your fresh kicks to you fast. That's why we offer a variety of shipping options to choose from at checkout, ensuring you get your new favourites exactly when you need them. \n\nDidn't find your perfect fit? No worries! We understand that sometimes things don't work out as planned. Our hassle-free return policy allows you to return unworn items within 3 days for a full refund or exchange.`,
     shipping: `We strive to deliver your order promptly and efficiently. All orders are processed within 1-2 business days. Standard shipping typically takes 5-7 business days. Expedited and express shipping options are available at checkout for an additional fee.`,
@@ -106,7 +107,7 @@ export const products: Product[] = [
     name: "Zephyr Swiftstrike Pro",
     category: "Men's Shoes",
     colours: [Image2, Image3, Image5],
-    price: "140,540",
+    price: 140540,
     sizes: ["36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46"],
     description: `We're passionate about getting your fresh kicks to you fast. That's why we offer a variety of shipping options to choose from at checkout, ensuring you get your new favourites exactly when you need them. \n\nDidn't find your perfect fit? No worries! We understand that sometimes things don't work out as planned. Our hassle-free return policy allows you to return unworn items within 3 days for a full refund or exchange.`,
     shipping: `We strive to deliver your order promptly and efficiently. All orders are processed within 1-2 business days. Standard shipping typically takes 5-7 business days. Expedited and express shipping options are available at checkout for an additional fee.`,
@@ -152,7 +153,7 @@ export const products: Product[] = [
     name: "Atlas Ascent GTX",
     category: "Women's Shoes",
     colours: [Image2, Image3, Image5],
-    price: "260,000",
+    price: 260000,
     sizes: ["36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46"],
     description: `We're passionate about getting your fresh kicks to you fast. That's why we offer a variety of shipping options to choose from at checkout, ensuring you get your new favourites exactly when you need them. \n\nDidn't find your perfect fit? No worries! We understand that sometimes things don't work out as planned. Our hassle-free return policy allows you to return unworn items within 3 days for a full refund or exchange.`,
     shipping: `We strive to deliver your order promptly and efficiently. All orders are processed within 1-2 business days. Standard shipping typically takes 5-7 business days. Expedited and express shipping options are available at checkout for an additional fee.`,
@@ -196,9 +197,9 @@ export const products: Product[] = [
   {
     id: "4",
     name: "Surge Conduit Bioflex",
-    category: "Men's Shoes",
+    category: "Kid's Shoes",
     colours: [Image2, Image3, Image5],
-    price: "40,540",
+    price: 40540,
     sizes: ["36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46"],
     description: `We're passionate about getting your fresh kicks to you fast. That's why we offer a variety of shipping options to choose from at checkout, ensuring you get your new favourites exactly when you need them. \n\nDidn't find your perfect fit? No worries! We understand that sometimes things don't work out as planned. Our hassle-free return policy allows you to return unworn items within 3 days for a full refund or exchange.`,
     shipping: `We strive to deliver your order promptly and efficiently. All orders are processed within 1-2 business days. Standard shipping typically takes 5-7 business days. Expedited and express shipping options are available at checkout for an additional fee.`,
@@ -244,7 +245,7 @@ export const products: Product[] = [
     name: "Surge Conduit Bioflex",
     category: "Men's Shoes",
     colours: [Image2, Image3, Image5],
-    price: "40,540",
+    price: 40540,
     sizes: ["36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46"],
     description: `We're passionate about getting your fresh kicks to you fast. That's why we offer a variety of shipping options to choose from at checkout, ensuring you get your new favourites exactly when you need them. \n\nDidn't find your perfect fit? No worries! We understand that sometimes things don't work out as planned. Our hassle-free return policy allows you to return unworn items within 3 days for a full refund or exchange.`,
     shipping: `We strive to deliver your order promptly and efficiently. All orders are processed within 1-2 business days. Standard shipping typically takes 5-7 business days. Expedited and express shipping options are available at checkout for an additional fee.`,
@@ -290,7 +291,7 @@ export const products: Product[] = [
     name: "Surge Conduit Bioflex",
     category: "Men's Shoes",
     colours: [Image2, Image3, Image5],
-    price: "40,540",
+    price: 40540,
     sizes: ["36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46"],
     description: `We're passionate about getting your fresh kicks to you fast. That's why we offer a variety of shipping options to choose from at checkout, ensuring you get your new favourites exactly when you need them. \n\nDidn't find your perfect fit? No worries! We understand that sometimes things don't work out as planned. Our hassle-free return policy allows you to return unworn items within 3 days for a full refund or exchange.`,
     shipping: `We strive to deliver your order promptly and efficiently. All orders are processed within 1-2 business days. Standard shipping typically takes 5-7 business days. Expedited and express shipping options are available at checkout for an additional fee.`,
@@ -336,7 +337,7 @@ export const products: Product[] = [
     name: "Surge Conduit Bioflex",
     category: "Men's Shoes",
     colours: [Image2, Image3, Image5],
-    price: "40,540",
+    price: 40540,
     sizes: ["36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46"],
     description: `We're passionate about getting your fresh kicks to you fast. That's why we offer a variety of shipping options to choose from at checkout, ensuring you get your new favourites exactly when you need them. \n\nDidn't find your perfect fit? No worries! We understand that sometimes things don't work out as planned. Our hassle-free return policy allows you to return unworn items within 3 days for a full refund or exchange.`,
     shipping: `We strive to deliver your order promptly and efficiently. All orders are processed within 1-2 business days. Standard shipping typically takes 5-7 business days. Expedited and express shipping options are available at checkout for an additional fee.`,

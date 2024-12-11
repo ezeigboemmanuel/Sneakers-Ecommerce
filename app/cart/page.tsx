@@ -8,12 +8,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCartStore } from "@/hooks/useCart";
 import Close from "@/assets/icons/close.svg";
+import { Product } from "@/lib/data";
 
 const page = () => {
   const cart = useCartStore();
-  const numArr = cart.cart.map((item) => item.current_price * item.quantity);
-  const subtotal = numArr.reduce((acc, curr) => acc + curr, 0);
+  const numArr = cart.cart.map((item) => item[0].price * (item[0].quantity ?? 0));
+  const subtotal = cart.cart.reduce(
+    (acc, item) => acc + item[0].price * (item[0].quantity || 1),
+    0
+  );
   const total = subtotal + 60000;
+
+  console.log(
+    "CART",
+    cart.cart.map((item) => item[0].name)
+  );
 
   return (
     <div className="px-4 py-2 lg:px-16 md:py-8">
@@ -38,22 +47,22 @@ const page = () => {
             <div key={index}>
               <div className="flex space-x-4">
                 <Image
-                  src={`https://api.timbu.cloud/images/${item.photos[2].url}`}
+                  src={item[0].images[0].imageUrl}
                   alt="image"
                   className="w-[165px] h-[160px] md:h-[150px] md:w-[160px] rounded-lg"
-                  width={100}
-                  height={100}
+                  width={5000}
+                  height={5000}
                 />
                 <div className="flex flex-col md:flex-row justify-between w-full">
                   <div>
                     <h1 className="font-[500] text-[17px] md:text-[20px] lg:text-[22px] text-[#141414]">
-                      {item.name}
+                      {item[0].name}
                     </h1>
                     <p className="font-light text-xs md:text-sm md:mb-3">
-                      {item.categories[0].name}
+                      {item[0].category}
                     </p>
                     <p className="font-[500] text-sm md:text-base mb-1 md:mb-3 md:hidden">
-                      ₦ {item.current_price}
+                      ₦ {item[0].price}
                     </p>
 
                     <div className="flex space-x-6 md:space-x-3 items-center mb-1 md:mb-3">
@@ -92,20 +101,20 @@ const page = () => {
                           ))}
                         </select> */}
                         <p className="font-light text-xs md:text-sm">
-                          {item.quantity}
+                          {item[0].quantity}
                         </p>
                       </div>
 
                       <Image
                         src={DeleteIcon}
                         alt="delete"
-                        onClick={() => cart.removeFromCart(item.id)}
+                        onClick={() => cart.removeFromCart(item[0].id)}
                         className="h-3 w-3 md:h-5 md:w-5 cursor-pointer hidden md:inline-block"
                       />
 
                       <div
                         className="cursor-pointer"
-                        onClick={() => cart.removeFromCart(item.id)}
+                        onClick={() => cart.removeFromCart(item[0].id)}
                       >
                         <Image
                           src={DeleteIcon}
@@ -117,7 +126,7 @@ const page = () => {
                   </div>
 
                   <div className="lg:mr-8 hidden md:flex flex-col w-full justify-between h-[120px]">
-                    <p className="font-[500] md:text-[15px] flex-1">{`₦ ${item.current_price}`}</p>
+                    <p className="font-[500] md:text-[15px] flex-1">{`₦ ${item[0].price}`}</p>
                   </div>
                 </div>
               </div>
