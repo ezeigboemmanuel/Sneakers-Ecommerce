@@ -239,4 +239,142 @@ export const products: Product[] = [
       },
     ],
   },
+  {
+    id: "5",
+    name: "Surge Conduit Bioflex",
+    category: "Men's Shoes",
+    colours: [Image2, Image3, Image5],
+    price: "40,540",
+    sizes: ["36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46"],
+    description: `We're passionate about getting your fresh kicks to you fast. That's why we offer a variety of shipping options to choose from at checkout, ensuring you get your new favourites exactly when you need them. \n\nDidn't find your perfect fit? No worries! We understand that sometimes things don't work out as planned. Our hassle-free return policy allows you to return unworn items within 3 days for a full refund or exchange.`,
+    shipping: `We strive to deliver your order promptly and efficiently. All orders are processed within 1-2 business days. Standard shipping typically takes 5-7 business days. Expedited and express shipping options are available at checkout for an additional fee.`,
+    reviews: [
+      {
+        stars: Stars1,
+        name: "Taiwo",
+        date: "8 July, 2024",
+        review:
+          "These shoes are incredible! So light and breathable, it feels like I'm walking on air",
+      },
+      {
+        stars: Stars2,
+        name: "Sarah B",
+        date: "8 July, 2024",
+        review:
+          "Not sure what the 'Phantom Pulse' does exactly, but these sneakers are amazing for running",
+      },
+    ],
+    images: [
+      {
+        imageUrl: surge1,
+      },
+      {
+        imageUrl: surge2,
+      },
+      {
+        imageUrl: surge3,
+      },
+      {
+        imageUrl: surge4,
+      },
+      {
+        imageUrl: surge5,
+      },
+      {
+        imageUrl: surge6,
+      },
+    ],
+  },
+  {
+    id: "6",
+    name: "Surge Conduit Bioflex",
+    category: "Men's Shoes",
+    colours: [Image2, Image3, Image5],
+    price: "40,540",
+    sizes: ["36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46"],
+    description: `We're passionate about getting your fresh kicks to you fast. That's why we offer a variety of shipping options to choose from at checkout, ensuring you get your new favourites exactly when you need them. \n\nDidn't find your perfect fit? No worries! We understand that sometimes things don't work out as planned. Our hassle-free return policy allows you to return unworn items within 3 days for a full refund or exchange.`,
+    shipping: `We strive to deliver your order promptly and efficiently. All orders are processed within 1-2 business days. Standard shipping typically takes 5-7 business days. Expedited and express shipping options are available at checkout for an additional fee.`,
+    reviews: [
+      {
+        stars: Stars1,
+        name: "Taiwo",
+        date: "8 July, 2024",
+        review:
+          "These shoes are incredible! So light and breathable, it feels like I'm walking on air",
+      },
+      {
+        stars: Stars2,
+        name: "Sarah B",
+        date: "8 July, 2024",
+        review:
+          "Not sure what the 'Phantom Pulse' does exactly, but these sneakers are amazing for running",
+      },
+    ],
+    images: [
+      {
+        imageUrl: surge1,
+      },
+      {
+        imageUrl: surge2,
+      },
+      {
+        imageUrl: surge3,
+      },
+      {
+        imageUrl: surge4,
+      },
+      {
+        imageUrl: surge5,
+      },
+      {
+        imageUrl: surge6,
+      },
+    ],
+  },
+  {
+    id: "7",
+    name: "Surge Conduit Bioflex",
+    category: "Men's Shoes",
+    colours: [Image2, Image3, Image5],
+    price: "40,540",
+    sizes: ["36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46"],
+    description: `We're passionate about getting your fresh kicks to you fast. That's why we offer a variety of shipping options to choose from at checkout, ensuring you get your new favourites exactly when you need them. \n\nDidn't find your perfect fit? No worries! We understand that sometimes things don't work out as planned. Our hassle-free return policy allows you to return unworn items within 3 days for a full refund or exchange.`,
+    shipping: `We strive to deliver your order promptly and efficiently. All orders are processed within 1-2 business days. Standard shipping typically takes 5-7 business days. Expedited and express shipping options are available at checkout for an additional fee.`,
+    reviews: [
+      {
+        stars: Stars1,
+        name: "Taiwo",
+        date: "8 July, 2024",
+        review:
+          "These shoes are incredible! So light and breathable, it feels like I'm walking on air",
+      },
+      {
+        stars: Stars2,
+        name: "Sarah B",
+        date: "8 July, 2024",
+        review:
+          "Not sure what the 'Phantom Pulse' does exactly, but these sneakers are amazing for running",
+      },
+    ],
+    images: [
+      {
+        imageUrl: surge1,
+      },
+      {
+        imageUrl: surge2,
+      },
+      {
+        imageUrl: surge3,
+      },
+      {
+        imageUrl: surge4,
+      },
+      {
+        imageUrl: surge5,
+      },
+      {
+        imageUrl: surge6,
+      },
+    ],
+  },
 ];

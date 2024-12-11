@@ -11,19 +11,10 @@ import ArrowBack from "@/assets/icons/arrowback.svg";
 import ArrowForward from "@/assets/icons/arrowforward.svg";
 import "@/styles/bestsellers.css";
 import { useEffect, useState } from "react";
+import { products } from "@/lib/data";
 
 const BestSellers = () => {
-  const [collections, setCollections] = useState<Collections | null>(null);
-
-  useEffect(() => {
-    fetch("/api/products")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setCollections(data);
-      });
-  }, []);
+  const [collections, setCollections] = useState(products);
 
   return (
     <div className="pt-8 md:pt-16 px-4 md:px-8 mb-16">
@@ -49,7 +40,7 @@ const BestSellers = () => {
         modules={[Navigation, Pagination]}
         className="mySwiper md:!hidden max-w-[1240px]"
       >
-        {collections?.items.slice(0, 6).map((collection, index) => (
+        {collections?.slice(0, 6).map((collection, index) => (
           <SwiperSlide key={index} className="max-w-[270px] pb-5">
             <div className="max-w-80">
               <Link
@@ -58,22 +49,22 @@ const BestSellers = () => {
                 className="max-w-80 cursor-pointer"
               >
                 <Image
-                  src={`https://api.timbu.cloud/images/${collection.photos[0].url}`}
+                  src={collection.images[0].imageUrl}
                   alt={collection.name}
                   className="rounded-lg hover:w-64 w-full"
-                  width={100}
-                  height={100}
+                  width={5000}
+                  height={5000}
                 />
                 <div className="">
                   <p className="text-[17px] text-[#141414] font-[500]">
                     {collection.name}
                   </p>
                   <p className="text-[14px] text-[#141414]/[0.8]">
-                    {collection.categories[0].name}
+                    {collection.category}
                   </p>
                   <p className="text-[14px] text-[#141414]/[0.8]">3 Colours</p>
                   <p className="font-[500] text-[15px] text-[#141414]">
-                    ₦ {collection.current_price[0].NGN[0]}
+                    ₦ {collection.price}
                   </p>
                 </div>
               </Link>
@@ -92,7 +83,7 @@ const BestSellers = () => {
         modules={[Navigation]}
         className="mySwiper !hidden md:!inline-block max-w-[1240px]"
       >
-        {collections?.items.slice(0, 6).map((collection, index) => (
+        {collections?.slice(0, 6).map((collection, index) => (
           <SwiperSlide key={index} className="max-w-[270px]">
             <div className="max-w-80">
               <Link
@@ -101,22 +92,22 @@ const BestSellers = () => {
                 className="max-w-80 cursor-pointer"
               >
                 <Image
-                  src={`https://api.timbu.cloud/images/${collection.photos[0].url}`}
+                  src={collection.images[0].imageUrl}
                   alt={collection.name}
                   className="rounded-2xl h-[276px] w-[276px] hover:w-64 hover:h-64"
-                  width={100}
-                  height={100}
+                  width={5000}
+                  height={5000}
                 />
                 <div className="">
                   <p className="text-[17px] text-[#141414] font-[500]">
                     {collection.name}
                   </p>
                   <p className="text-[14px] text-[#141414]/[0.8]">
-                    {collection.categories[0].name}
+                    {collection.category}
                   </p>
                   <p className="text-[14px] text-[#141414]/[0.8]">3 Colours</p>
                   <p className="font-[500] text-[15px] text-[#141414]">
-                    ₦ {collection.current_price[0].NGN[0]}
+                    ₦ {collection.price}
                   </p>
                 </div>
               </Link>
