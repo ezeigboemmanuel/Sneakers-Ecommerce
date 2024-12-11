@@ -11,21 +11,11 @@ import { Navigation, Pagination } from "swiper/modules";
 import ArrowBack from "@/assets/icons/arrowback.svg";
 import ArrowForward from "@/assets/icons/arrowforward.svg";
 import "@/styles/collections.css";
-
+import { products } from "@/lib/data";
 
 const NewCollections = () => {
   const [activeIndex, setActiveIndex] = useState(1);
-  const [collections, setCollections] = useState<Collections | null>(null);
-
-  useEffect(() => {
-    fetch("/api/products")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setCollections(data);
-      });
-  }, []);
+  const [collections, setCollections] = useState(products);
 
   return (
     <div className="pt-7 md:pt-14 px-4 md:px-8">
@@ -39,7 +29,7 @@ const NewCollections = () => {
           modules={[Navigation, Pagination]}
           className="mySwiper md:!hidden"
         >
-          {collections?.items.slice(0, 4).map((collection, index) => (
+          {collections?.slice(0, 4).map((collection, index) => (
             <SwiperSlide
               className={`cursor-pointer pb-5 mr-2 mx-auto text-center`}
               key={index}
@@ -47,24 +37,24 @@ const NewCollections = () => {
               <div className={`cursor-pointer`}>
                 <Link href={`/products/${collection.id}`} key={index}>
                   <Image
-                    src={`https://api.timbu.cloud/images/${collection.photos[0].url}`}
+                    src={collection.images[0].imageUrl}
                     alt={collection.name}
                     className={`rounded-2xl w-full`}
-                    width={100}
-                    height={100}
+                    width={5000}
+                    height={5000}
                   />
                   <div className={``}>
                     <p className={`font-[500] text-[20px] text-[#141414]`}>
                       {collection.name}
                     </p>
                     <p className={`"text-base text-[#141414]/[0.8]`}>
-                      {collection.categories[0].name}
+                      {collection.category}
                     </p>
                     <p className={`"text-base text-[#141414]/[0.8]`}>
                       3 Colours
                     </p>
                     <p className={`font-[500] text-base text-[#141414]`}>
-                      ₦ {collection.current_price[0].NGN[0]}
+                      ₦ {collection.price}
                     </p>
                   </div>
                 </Link>
@@ -89,7 +79,7 @@ const NewCollections = () => {
           modules={[Navigation]}
           className="mySwiper swiper-container !hidden md:!inline-block swiper1 md:max-w-[630px] lg-md:max-w-[788px] lg:max-w-[788px] max-h-[420px] min-h-[420px] w-[100%]"
         >
-          {collections?.items.slice(0, 4).map((collection, index) => (
+          {collections?.slice(0, 4).map((collection, index) => (
             <SwiperSlide
               className={`h-[400px] cursor-pointer min-h-[400px] ${
                 activeIndex === index
@@ -109,15 +99,15 @@ const NewCollections = () => {
               >
                 <Link href={`/products/${collection.id}`} key={index}>
                   <Image
-                    src={`https://api.timbu.cloud/images/${collection.photos[0].url}`}
+                    src={collection.images[0].imageUrl}
                     alt={collection.name}
                     className={`rounded-2xl w-full  ${
                       activeIndex === index
                         ? "md:max-w-[200px] lg-md:max-w-80 md:h-[293px] lg-md:h-[325px] lg:h-[325px] lg:max-w-80"
                         : "brightness-75 md:h-52 lg-md:h-60 lg:h-60 md:max-w-[150px] lg-md:max-w-52 lg:max-w-52"
                     }`}
-                    width={100}
-                    height={100}
+                    width={5000}
+                    height={5000}
                   />
                   <div
                     className={` ${activeIndex === index ? "" : "opacity-50"}`}
@@ -138,7 +128,7 @@ const NewCollections = () => {
                           : "text-[#141414]/[0.3]"
                       }`}
                     >
-                      {collection.categories[0].name}
+                      {collection.category}
                     </p>
                     <p
                       className={`text-sm ${
@@ -156,7 +146,7 @@ const NewCollections = () => {
                           : "text-[15px] text-[#141414]/[0.5]"
                       }`}
                     >
-                      ₦ {collection.current_price[0].NGN[0]}
+                      ₦ {collection.price}
                     </p>
                   </div>
                 </Link>
