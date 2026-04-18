@@ -18,6 +18,15 @@ const config = {
       },
     },
     extend: {
+      colors: {
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        "nav-bg": "var(--nav-bg)",
+        "nav-text": "var(--nav-text)",
+        "nav-text-muted": "var(--nav-text-muted)",
+        "surface-secondary": "var(--surface-secondary)",
+        "muted-border": "var(--muted-border)",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

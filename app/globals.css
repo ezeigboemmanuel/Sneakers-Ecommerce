@@ -1,4 +1,31 @@
 @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
-  
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --background: #f7f7f7;
+  --foreground: #141414;
+  --nav-bg: #1a1a1a;
+  --nav-text: #ffffff;
+  --nav-text-muted: rgba(255, 255, 255, 0.65);
+  --surface-secondary: rgba(255, 255, 255, 0.12);
+  --muted-border: rgba(255, 255, 255, 0.2);
+}
+
+.dark {
+  color-scheme: dark;
+  --background: #050505;
+  --foreground: #f5f5f5;
+  --nav-bg: #050505;
+  --nav-text: #f5f5f5;
+  --nav-text-muted: rgba(245, 245, 245, 0.6);
+  --surface-secondary: rgba(245, 245, 245, 0.08);
+  --muted-border: rgba(245, 245, 245, 0.15);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
